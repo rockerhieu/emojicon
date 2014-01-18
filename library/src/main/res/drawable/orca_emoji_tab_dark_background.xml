@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2013 Klamr. All rights reserved.
+  ~
+  ~ This software is the confidential and proprietary information of Klamr or one of its
+  ~ subsidiaries. You shall not disclose this confidential information and shall use it only in
+  ~ accordance with the terms of the license agreement or other applicable agreement you entered into
+  ~ with Klamr.
+  ~
+  ~ KLAMR MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE SOFTWARE, EITHER
+  ~ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. KLAMR SHALL NOT BE LIABLE FOR ANY LOSSES
+  ~ OR DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+  ~ ITS DERIVATIVES.
+  -->
+
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/orca_composer_tab_pressed" />
+    <item android:drawable="@drawable/orca_composer_tab_active" android:state_checked="true" />
+    <item android:drawable="@drawable/orca_composer_tab_dark" />
+</selector>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2013 Klamr. All rights reserved.
+  ~
+  ~ This software is the confidential and proprietary information of Klamr or one of its
+  ~ subsidiaries. You shall not disclose this confidential information and shall use it only in
+  ~ accordance with the terms of the license agreement or other applicable agreement you entered into
+  ~ with Klamr.
+  ~
+  ~ KLAMR MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE SOFTWARE, EITHER
+  ~ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. KLAMR SHALL NOT BE LIABLE FOR ANY LOSSES
+  ~ OR DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+  ~ ITS DERIVATIVES.
+  -->
+
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Emoji_GridView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:cacheColorHint="@android:color/transparent"
+    android:columnWidth="40dip"
+    android:horizontalSpacing="5dip"
+    android:paddingTop="5dip"
+    android:numColumns="auto_fit"
+    android:scrollbars="vertical"
+    android:verticalSpacing="5dip" />

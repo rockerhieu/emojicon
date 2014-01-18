@@ -1,6 +1,5 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+.gradle
+/local.properties
+/.idea/workspace.xml
+.DS_Store
+.idea

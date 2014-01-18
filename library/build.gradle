@@ -1,0 +1,34 @@
+apply plugin: 'android-library'
+apply plugin: 'maven'
+
+versionName = "1.0"
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.0"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 19
+        versionCode 1
+        versionName "$versionName"
+    }
+    release {
+        runProguard false
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:+'
+}
+
+group = 'com.rockerhieu.emojicon'
+version = "$versionName"
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://$buildDir/aar")
+        }
+    }
+}
