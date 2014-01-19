@@ -1,6 +1,8 @@
 ## Emojicon
 
-Do you like emojis in Whatsapp, iMessage? [Emojicon](https://github.com/rockerhieu/emojicon) is a library to implement such a thing for Android.
+Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io/emojicon/) is a library to implement such a thing for Android.
+
+Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
 
 ## Example
 

@@ -11,7 +11,6 @@
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Gradle: support-v4-19.0.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: ComAndroidSupportAppcompatV71900.aar" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">
