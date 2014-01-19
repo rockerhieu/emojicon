@@ -24,9 +24,7 @@
 
     <com.rockerhieu.emojicon.EmojiconTextView
             android:id="@+id/txtEmojicon"
-            android:textSize="24sp"
             android:text="@string/i_love_emojicon"
-            emojicon:emojiconSize="32sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -34,12 +32,12 @@
             android:id="@+id/editEmojicon"
             android:hint="@string/hint"
             android:text="@string/i_love_emojicon"
-            android:textSize="24sp"
-            emojicon:emojiconSize="32sp"
+            emojicon:emojiconSize="28sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <FrameLayout
+    <fragment
             android:id="@+id/emojicons"
             android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+            android:layout_height="220dp"
+            class="com.rockerhieu.emojicon.EmojiconsFragment"/>
 </LinearLayout>

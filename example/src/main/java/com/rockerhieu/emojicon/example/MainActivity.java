@@ -33,8 +33,6 @@ public class MainActivity extends FragmentActivity implements EmojiconGridFragme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.emojicons, new EmojiconsFragment()).commit();
-
         mEditEmojicon = (EditText) findViewById(R.id.editEmojicon);
         mTxtEmojicon = (TextView) findViewById(R.id.txtEmojicon);
         mEditEmojicon.addTextChangedListener(new TextWatcherAdapter() {

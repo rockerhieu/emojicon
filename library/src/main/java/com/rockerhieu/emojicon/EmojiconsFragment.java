@@ -26,7 +26,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.*;
 import android.widget.EditText;
-import com.rockerhieu.emojicon.emoji.Emojicon;
+import com.rockerhieu.emojicon.emoji.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,11 +45,11 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
         final ViewPager emojisPager = (ViewPager) view.findViewById(R.id.emojis_pager);
         emojisPager.setOnPageChangeListener(this);
         EmojisPagerAdapter emojisAdapter = new EmojisPagerAdapter(getFragmentManager(), Arrays.asList(
-                EmojiconGridFragment.newInstance(0),
-                EmojiconGridFragment.newInstance(1),
-                EmojiconGridFragment.newInstance(2),
-                EmojiconGridFragment.newInstance(3),
-                EmojiconGridFragment.newInstance(4)
+                EmojiconGridFragment.newInstance(People.DATA),
+                EmojiconGridFragment.newInstance(Nature.DATA),
+                EmojiconGridFragment.newInstance(Objects.DATA),
+                EmojiconGridFragment.newInstance(Places.DATA),
+                EmojiconGridFragment.newInstance(Symbols.DATA)
         ));
         emojisPager.setAdapter(emojisAdapter);
 

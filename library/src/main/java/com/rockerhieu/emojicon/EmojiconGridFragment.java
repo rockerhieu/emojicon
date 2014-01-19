@@ -18,24 +18,26 @@ package com.rockerhieu.emojicon;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import com.rockerhieu.emojicon.emoji.*;
-import android.support.v4.app.Fragment;
+import com.rockerhieu.emojicon.emoji.Emojicon;
+import com.rockerhieu.emojicon.emoji.People;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
 public class EmojiconGridFragment extends Fragment implements AdapterView.OnItemClickListener {
     private OnEmojiconClickedListener mOnEmojiconClickedListener;
+    private Emojicon[] mData;
 
-    protected static EmojiconGridFragment newInstance(int emojisPageIndex) {
+    protected static EmojiconGridFragment newInstance(Emojicon[] emojicons) {
         EmojiconGridFragment emojiGridFragment = new EmojiconGridFragment();
         Bundle args = new Bundle();
-        args.putInt("emoji_page_index", emojisPageIndex);
+        args.putSerializable("emojicons", emojicons);
         emojiGridFragment.setArguments(args);
         return emojiGridFragment;
     }
@@ -49,24 +51,15 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         GridView gridView = (GridView) view.findViewById(R.id.Emoji_GridView);
-        switch (getArguments() == null ? 0 : getArguments().getInt("emoji_page_index", 0)) {
-            case 0:
-                gridView.setAdapter(new EmojiAdapter(view.getContext(), People.DATA));
-                break;
-            case 1:
-                gridView.setAdapter(new EmojiAdapter(view.getContext(), Nature.DATA));
-                break;
-            case 2:
-                gridView.setAdapter(new EmojiAdapter(view.getContext(), Objects.DATA));
-                break;
-            case 3:
-                gridView.setAdapter(new EmojiAdapter(view.getContext(), Places.DATA));
-                break;
-            case 4:
-                gridView.setAdapter(new EmojiAdapter(view.getContext(), Symbols.DATA));
-                break;
-        }
+        mData = getArguments() == null ? People.DATA : (Emojicon[]) getArguments().getSerializable("emojicons");
+        gridView.setAdapter(new EmojiAdapter(view.getContext(), mData));
         gridView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("emojicons", mData);
     }
 
     @Override

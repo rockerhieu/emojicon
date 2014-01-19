@@ -73,6 +73,7 @@
     <orderEntry type="module" module-name="library" exported="" />
     <orderEntry type="library" exported="" name="support-v4-19.0.0" level="project" />
     <orderEntry type="library" exported="" name="ComAndroidSupportAppcompatV71900.aar" level="project" />
+    <orderEntry type="library" exported="" name="disklrucache-2.0.2" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

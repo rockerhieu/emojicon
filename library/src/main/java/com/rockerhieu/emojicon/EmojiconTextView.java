@@ -30,8 +30,7 @@ public class EmojiconTextView extends TextView {
 
     public EmojiconTextView(Context context) {
         super(context);
-        mEmojiconSize = (int) getTextSize();
-        setText(getText());
+        init(null);
     }
 
     public EmojiconTextView(Context context, AttributeSet attrs) {
@@ -45,9 +44,13 @@ public class EmojiconTextView extends TextView {
     }
 
     private void init(AttributeSet attrs) {
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.Emojicon);
-        mEmojiconSize = (int) a.getDimension(R.styleable.Emojicon_emojiconSize, getTextSize());
-        a.recycle();
+        if (attrs == null) {
+            mEmojiconSize = (int) getTextSize();
+        } else {
+            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.Emojicon);
+            mEmojiconSize = (int) a.getDimension(R.styleable.Emojicon_emojiconSize, getTextSize());
+            a.recycle();
+        }
         setText(getText());
     }
 

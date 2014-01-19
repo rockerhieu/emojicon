@@ -17,7 +17,7 @@
 
 <resources>
 
-    <string name="app_name">Example</string>
+    <string name="app_name">Emojicon Example</string>
     <string name="action_settings">Settings</string>
     <string name="hint">Type emoji here</string>
     <string name="i_love_emojicon">I \ue32d emojicon</string>
