@@ -1,0 +1,7 @@
+branches:
+  only:
+    - master
+language:
+  - java
+jdk:
+  - openjdk6
