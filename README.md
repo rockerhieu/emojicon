@@ -4,6 +4,8 @@ Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io
 
 Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
 
+Branch `master`: [![Build Status](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)](https://travis-ci.org/rockerhieu/emojicon)
+
 ## Example
 
 ```xml
