@@ -4,7 +4,7 @@ apply plugin: 'maven'
 versionName = "1.0"
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    buildToolsVersion "19.0.1"
 
     defaultConfig {
         minSdkVersion 8
