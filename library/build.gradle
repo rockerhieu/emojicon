@@ -12,10 +12,6 @@ android {
         versionCode 1
         versionName "$versionName"
     }
-    release {
-        runProguard false
-        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-    }
     lintOptions {
         abortOnError false
     }
