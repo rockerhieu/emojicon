@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Emojicon : A library to show emoji in TextView, EditText (like WhatsApp) for Android" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Emojicon</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/rockerhieu/emojicon">View on GitHub</a>
+
+          <h1 id="project_title">Emojicon</h1>
+          <h2 id="project_tagline">A library to show emoji in TextView, EditText (like WhatsApp) for Android</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/rockerhieu/emojicon/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/rockerhieu/emojicon/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="emojicon" class="anchor" href="#emojicon"><span class="octicon octicon-link"></span></a>Emojicon</h2>
+
+<p>Do you like emojis in Whatsapp, iMessage? <a href="https://github.com/rockerhieu/emojicon">Emojicon</a> is a library to implement such a thing for Android.</p>
+
+<h2>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+              <span class="na">xmlns:emojicon=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+              <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+              <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+              <span class="na">android:orientation=</span><span class="s">"vertical"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;com.rockerhieu.emojicon.EmojiconTextView</span>
+            <span class="na">android:id=</span><span class="s">"@+id/txtEmojicon"</span>
+            <span class="na">android:text=</span><span class="s">"I \ue32d emojicon"</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;com.rockerhieu.emojicon.EmojiconEditText</span>
+            <span class="na">android:id=</span><span class="s">"@+id/editEmojicon"</span>
+            <span class="na">android:text=</span><span class="s">"I \ue32d emojicon"</span>
+            <span class="na">emojicon:emojiconSize=</span><span class="s">"28sp"</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;fragment</span>
+            <span class="na">android:id=</span><span class="s">"@+id/emojicons"</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"220dp"</span>
+            <span class="na">class=</span><span class="s">"com.rockerhieu.emojicon.EmojiconsFragment"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</pre></div>
+
+<p><img src="https://github.com/rockerhieu/emojicon/raw/master/images/sample.jpg" alt="image"></p>
+
+<p><em>Note: You can change the size of emojis in XML layout through attribute <code>emojiconSize</code>.</em></p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>
+<code>EmojiconTextView</code>: a <code>TextView</code> which can render emojis.</li>
+<li>
+<code>EmojiconEditText</code>: a <code>EditText</code> which can render emojis.</li>
+<li>
+<code>EmojiconGridFragment</code>: a fragment contains emojis in a <code>GridView</code> for the user to choose.</li>
+<li>
+<code>EmojiconsFragment</code>: a fragment contains many set of emojis for the user to choose.</li>
+</ul><h2>
+<a name="building-in-intellij" class="anchor" href="#building-in-intellij"><span class="octicon octicon-link"></span></a>Building in IntelliJ</h2>
+
+<p>Via Gradle:</p>
+
+<pre><code>dependencies {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://github.com/rockerhieu/mvn-repo/raw/master/'
+        }
+    }
+
+    compile 'com.rockerhieu.emojicon:library:&lt;VERSION&gt;'
+}
+</code></pre>
+
+<p>Find out <code>&lt;VERSION&gt;</code> <a href="https://github.com/rockerhieu/mvn-repo/tree/master/com/rockerhieu/emojicon/library">here</a></p>
+
+<h2>
+<a name="building-in-eclipse" class="anchor" href="#building-in-eclipse"><span class="octicon octicon-link"></span></a>Building in Eclipse</h2>
+
+<p>This project depends on the Android V4 Support Library for using Fragment, so
+you have to import it into your workspace. Copy the jar file from
+<code>/Android_SDK/extras/android/compitibility/v4/</code> to the <code>libs</code> folder of the project.</p>
+
+<p>Next, you'll need to install the <a href="https://github.com/spring-projects/eclipse-integration-gradle">Eclipse Integration Gradle Plugin</a>.
+and restart Eclipse.</p>
+
+<p>You can then import the Emojicon project by doing File/Import/Gradle/Gradle Project
+and the clicking the Browse button to point to the Emojicon directory.  Click
+on Build Model, and then you can put a checkbox next to "example" and finish the import.  This
+will show up as "example" in your Eclipse workspace.  You can rename it by right clicking on it
+and choosing Refactor/Rename.</p>
+
+<p>If it complains that "/gen already exists but is not a source folder", right click on the
+gen folder and then BuildPath/SourceFolder.</p>
+
+<h2>
+<a name="acknowledgements" class="anchor" href="#acknowledgements"><span class="octicon octicon-link"></span></a>Acknowledgements</h2>
+
+<p>Emojicon is using emojis graphics from <a href="https://github.com/arvida/emoji-cheat-sheet.com/tree/master/public/graphics/emojis">emoji-cheat-sheet.com</a>.</p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Please fork this repository and contribute back using
+<a href="https://github.com/rockerhieu/emojicon/pulls">pull requests</a>.</p>
+
+<p>Any contributions, large or small, major features, bug fixes, additional
+language translations, unit/integration tests are welcomed and appreciated
+but will be thoroughly reviewed and discussed.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<ul>
+<li><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Version 2.0</a></li>
+</ul><pre><code>Copyright 2014 Hieu Rocker
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Emojicon maintained by <a href="https://github.com/rockerhieu">rockerhieu</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-47293810-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
