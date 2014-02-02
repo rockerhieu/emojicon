@@ -1,7 +1,8 @@
 apply plugin: 'android-library'
 apply plugin: 'maven'
+apply plugin: 'signing'
 
-versionName = "1.0"
+ext.emojiconVersionName = "1.0"
 android {
     compileSdkVersion 19
     buildToolsVersion "19.0.1"
@@ -10,7 +11,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 19
         versionCode 1
-        versionName "$versionName"
+        versionName emojiconVersionName
     }
     lintOptions {
         abortOnError false
@@ -22,12 +23,68 @@ dependencies {
 }
 
 group = 'com.rockerhieu.emojicon'
-version = "$versionName"
+version = emojiconVersionName
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
 uploadArchives {
     repositories {
         mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
             repository(url: "file://$buildDir/aar")
         }
+
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                artifactId = 'library'
+                name = 'Emojicon'
+                description 'A library to show emoji in TextView, EditText (like WhatsApp) for Android'
+                url 'http://rockerhieu.com/emojicon'
+
+                scm {
+                   url 'scm:git@github.com:rockerhieu/emojicon.git'
+                   connection 'scm:git@github.com:rockerhieu/emojicon.git'
+                   developerConnection 'scm:git@github.com:rockerhieu/emojicon.git'
+                }
+
+                licenses {
+                   license {
+                       name 'The Apache Software License, Version 2.0'
+                       url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                       distribution 'repo'
+                   }
+                }
+
+                developers {
+                   developer {
+                       id 'rockerhieu'
+                       name 'Hieu Rocker'
+                   }
+                }
+            }
+        }
     }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+signing {
+    required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
 }
