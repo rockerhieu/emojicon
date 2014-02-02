@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-ext.emojiconVersionName = "1.0"
+ext.emojiconVersionName = "1.1-SNAPSHOT"
 android {
     compileSdkVersion 19
     buildToolsVersion "19.0.1"
@@ -87,4 +87,8 @@ artifacts {
 signing {
     required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
     sign configurations.archives
+}
+
+task getVersion << {
+    println version
 }

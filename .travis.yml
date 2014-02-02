@@ -1,25 +1,29 @@
 branches:
   only:
-    - master
+  - master
 language:
   - java
 before_install:
- - if [ `uname -m` = x86_64 ]; then sudo apt-get update; fi
- - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
- # newest android SDK 22.3
- - wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
- - tar -zxf android-sdk_r22.3-linux.tgz
- - export ANDROID_HOME=`pwd`/android-sdk-linux
- - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
- # manually set sdk.dir variable, according to local paths
- - echo "sdk.dir=$ANDROID_HOME" > local.properties
- - echo yes | android update sdk -t tools,platform-tools,extra-android-support,extra-android-m2repository,android-8,android-19 --force --no-ui
- # build tools cannot be installed through "android update sdk" as of now
- - wget http://dl.google.com/android/repository/build-tools_r19.0.1-linux.zip
- - mkdir -p $ANDROID_HOME/build-tools
- - unzip -qq build-tools_r19.0.1-linux.zip -d $ANDROID_HOME/build-tools/
- - mv $ANDROID_HOME/build-tools/android-4.4.2 $ANDROID_HOME/build-tools/19.0.1
- # verify files exist in right paths
- - find $ANDROID_HOME/build-tools
- - file $ANDROID_HOME/build-tools/19.0.1/aapt
- - gradle clean build
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get update; fi
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm
+    ia32-libs ia32-libs-multiarch; fi
+  - wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
+  - tar -zxf android-sdk_r22.3-linux.tgz
+  - export ANDROID_HOME=`pwd`/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  - echo "sdk.dir=$ANDROID_HOME" > local.properties
+  - echo yes | android update sdk -t tools,platform-tools,extra-android-support,extra-android-m2repository,android-8,android-19
+    --force --no-ui
+  - wget http://dl.google.com/android/repository/build-tools_r19.0.1-linux.zip
+  - mkdir -p $ANDROID_HOME/build-tools
+  - unzip -qq build-tools_r19.0.1-linux.zip -d $ANDROID_HOME/build-tools/
+  - mv $ANDROID_HOME/build-tools/android-4.4.2 $ANDROID_HOME/build-tools/19.0.1
+  - find $ANDROID_HOME/build-tools
+  - file $ANDROID_HOME/build-tools/19.0.1/aapt
+  - ./gradlew clean build -PsonatypeUsername="${SONATYPE_USERNAME}" -PsonatypePassword="${SONATYPE_PASSWORD}"
+after_success:
+  - ./initiate-publish.sh
+env:
+  global:
+  - secure: JAdhNlGIAHXv0VT0D1IuOZaWbZNvwJn1pruP79wvlqMJwhWq+xVMaCLWtlm3YsbYdkGIYPVYbX5UL6paF0lUbJNeQe20XE7pCMd+pukIsuWXyWuMp020BF2D3hR4hQypPr4PDqdx2sLXCyvUMsR7ZUAEnpqBZN0UsFMcUOFXqmI=
+  - secure: Dj80D6RHg1tqSfrnS2ySyBt7MTi6D57FwQC3wTnSgKeSTFsILGMVQYLeXZ7KXa8lhiaD5ZkGj/cIUp8VPGVEpb2bw48lyW7GJYlQhxK8dF3qZ/q8JwAsQ+x6YeBkW8V7nTRlAeK1yMiZl5aRz/t9GPHnipU8m2/0bEwqOukCbRw=
