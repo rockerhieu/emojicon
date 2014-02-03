@@ -21,6 +21,7 @@ before_install:
   - find $ANDROID_HOME/build-tools
   - file $ANDROID_HOME/build-tools/19.0.1/aapt
 after_success:
+  - chmod +x initiate-publish.sh
   - ./initiate-publish.sh
 env:
   global:
