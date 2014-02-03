@@ -20,8 +20,6 @@ before_install:
   - mv $ANDROID_HOME/build-tools/android-4.4.2 $ANDROID_HOME/build-tools/19.0.1
   - find $ANDROID_HOME/build-tools
   - file $ANDROID_HOME/build-tools/19.0.1/aapt
-install:
-  - ./gradlew assemble -PsonatypeUsername="${SONATYPE_USERNAME}" -PsonatypePassword="${SONATYPE_PASSWORD}"
 after_success:
   - ./initiate-publish.sh
 env:
