@@ -15,6 +15,7 @@ allprojects {
     }
 }
 
+/*
 import org.gradle.plugins.signing.Sign
 
 gradle.taskGraph.whenReady { taskGraph ->
@@ -39,3 +40,4 @@ gradle.taskGraph.whenReady { taskGraph ->
         }
     }
 }
+*/
