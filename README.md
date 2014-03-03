@@ -67,21 +67,7 @@ Find out `<VERSION>` [here](https://github.com/rockerhieu/mvn-repo/tree/master/c
 
 ## Building in Eclipse
 
-This project depends on the Android V4 Support Library for using Fragment, so
-you have to import it into your workspace. Copy the jar file from
-`/Android_SDK/extras/android/compitibility/v4/` to the `libs` folder of the project.
-
-Next, you'll need to install the [Eclipse Integration Gradle Plugin](https://github.com/spring-projects/eclipse-integration-gradle).
-and restart Eclipse.
-
-You can then import the Emojicon project by doing File/Import/Gradle/Gradle Project
-and the clicking the Browse button to point to the Emojicon directory.  Click
-on Build Model, and then you can put a checkbox next to "example" and finish the import.  This
-will show up as "example" in your Eclipse workspace.  You can rename it by right clicking on it
-and choosing Refactor/Rename.
-
-If it complains that "/gen already exists but is not a source folder", right click on the
-gen folder and then BuildPath/SourceFolder.
+Read more [here](https://github.com/rockerhieu/emojicon/wiki/Building-in-Eclipse)
 
 ## Acknowledgements
 
