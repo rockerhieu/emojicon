@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="com.rockerhieu.emojicon" external.system.module.version="1.0" type="JAVA_MODULE" version="4">
+<module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="com.rockerhieu.emojicon" external.system.module.version="1.1-SNAPSHOT" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":library" />
+      </configuration>
+    </facet>
     <facet type="android" name="Android">
       <configuration>
         <option name="SELECTED_BUILD_VARIANT" value="debug" />
@@ -16,11 +21,6 @@
         <option name="LIBRARY_PROJECT" value="true" />
       </configuration>
     </facet>
-    <facet type="android-gradle" name="Android-Gradle">
-      <configuration>
-        <option name="GRADLE_PROJECT_PATH" value=":library" />
-      </configuration>
-    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/classes/debug" />
@@ -31,10 +31,10 @@
       <sourceFolder url="file://$MODULE_DIR$/build/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/source/rs/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/res/rs/debug" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/r/test/debug" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/aidl/test/debug" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/buildConfig/test/debug" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/rs/test/debug" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/r/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/aidl/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/buildConfig/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/rs/test/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/res/rs/test/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" isTestSource="false" />
@@ -71,7 +71,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="support-v4-19.0.0" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">
@@ -109,6 +109,7 @@
         <entry key="CheckCalls" value="false" />
         <entry key="CheckExpectedWarnings" value="false" />
         <entry key="CheckImmutableAnnotation" value="true" />
+        <entry key="CheckRelaxingNullnessAnnotation" value="true" />
         <entry key="CheckTypeQualifiers" value="true" />
         <entry key="CloneIdiom" value="true" />
         <entry key="ComparatorIdiom" value="true" />

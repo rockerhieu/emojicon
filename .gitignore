@@ -5,3 +5,6 @@
 .idea
 atlassian-ide-plugin.xml
 gradle.properties
+example/src/main/bin
+library/src/main/bin
+library/src/main/gen
