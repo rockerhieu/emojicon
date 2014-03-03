@@ -51,19 +51,10 @@ _Note: You can change the size of emojis in XML layout through attribute `emojic
 Via Gradle:
 
 ```
-dependencies {
-    repositories {
-    	mavenCentral()
-        maven {
-            url 'https://github.com/rockerhieu/mvn-repo/raw/master/'
-        }
-    }
-
-    compile 'com.rockerhieu.emojicon:library:<VERSION>'
-}
+compile 'com.rockerhieu.emojicon:library:1.0'
 ```
 
-Find out `<VERSION>` [here](https://github.com/rockerhieu/mvn-repo/tree/master/com/rockerhieu/emojicon/library)
+Releases can be found on either Maven Central or [Emojicon's Releases](https://github.com/rockerhieu/emojicon/releases/)
 
 ## Building in Eclipse
 
