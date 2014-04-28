@@ -67,7 +67,11 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
         super.onAttach(activity);
         if (activity instanceof OnEmojiconClickedListener) {
             mOnEmojiconClickedListener = (OnEmojiconClickedListener) activity;
-        } else {
+        } if(getParentFragment() instanceof OnEmojiconClickedListener)
+        {
+            mOnEmojiconClickedListener = (OnEmojiconClickedListener) getParentFragment();
+        }
+        else {
             throw new IllegalArgumentException(activity + " must implement interface " + OnEmojiconClickedListener.class.getSimpleName());
         }
     }
