@@ -34,13 +34,14 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
         }
     }
 }
 
 if (project.hasProperty('keyalias')) {
     android.signingConfigs.release.keyAlias = keyalias
+    android.buildTypes.release.signingConfig = android.signingConfigs.release
 }
 
 if (project.hasProperty('keystore')) {
