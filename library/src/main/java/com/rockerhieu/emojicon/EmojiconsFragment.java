@@ -85,6 +85,8 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
         super.onAttach(activity);
         if (getActivity() instanceof OnEmojiconBackspaceClickedListener) {
             mOnEmojiconBackspaceClickedListener = (OnEmojiconBackspaceClickedListener) getActivity();
+        } else if(getParentFragment() instanceof  OnEmojiconBackspaceClickedListener) {
+            mOnEmojiconBackspaceClickedListener = (OnEmojiconBackspaceClickedListener) getParentFragment();
         } else {
             throw new IllegalArgumentException(activity + " must implement interface " + OnEmojiconBackspaceClickedListener.class.getSimpleName());
         }
