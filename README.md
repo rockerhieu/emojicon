@@ -4,7 +4,7 @@ Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io
 
 Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
 
-Branch `master`: [![Build Status](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)](https://travis-ci.org/rockerhieu/emojicon)
+Branch `master`: [![Build Status](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)](https://travis-ci.org/rockerhieu/emojicon) [ ![Codeship Status for rockerhieu/emojicon](https://codeship.io/projects/99f69db0-f078-0131-77d8-7a2ec608695e/status)](https://codeship.io/projects/27402)
 
 ## Example
 
