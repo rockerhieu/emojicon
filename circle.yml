@@ -1,0 +1,33 @@
+machine:
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
+  java:
+    version: oraclejdk7
+
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "tools,platform-tools"
+    - echo y | android update sdk --no-ui --all --filter "android-20,build-tools-20.0.0"
+  override:
+    - ./gradlew dependencies
+
+test:
+  override:
+    - ./gradlew check
+
+  post:
+    - ls
+    - ls app
+    - ls app/build
+    - mkdir $CIRCLE_ARTIFACTS/lint
+    - mv app/build/outputs/lint-results* $CIRCLE_ARTIFACTS/lint
+
+deployment:
+  staging:
+    branch: develop
+    commands:
+      - ./gradlew assemble uploadArchives
+  release:
+    branch: master
+    commands:
+      - ./gradlew assemble uploadArchives

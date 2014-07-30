@@ -1,11 +1,10 @@
-apply plugin: 'android-library'
-apply plugin: 'maven'
-apply plugin: 'signing'
+apply plugin: 'com.android.library'
+apply from: 'gradle-mvn-push.gradle'
 
 ext.emojiconVersionName = "1.1-SNAPSHOT"
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
 
     defaultConfig {
         minSdkVersion 8
@@ -19,78 +18,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:+'
-}
-
-group = 'com.rockerhieu.emojicon'
-version = emojiconVersionName
-ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-            repository(url: "file://$buildDir/aar")
-        }
-
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
-                authentication(userName: "$System.env.SONATYPE_USERNAME", password: "$System.env.SONATYPE_PASSWORD")
-            }
-
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots") {
-                authentication(userName: "$System.env.SONATYPE_USERNAME", password: "$System.env.SONATYPE_PASSWORD")
-            }
-
-            pom.project {
-                artifactId = 'library'
-                name = 'Emojicon'
-                description 'A library to show emoji in TextView, EditText (like WhatsApp) for Android'
-                url 'http://rockerhieu.com/emojicon'
-
-                scm {
-                   url 'scm:git@github.com:rockerhieu/emojicon.git'
-                   connection 'scm:git@github.com:rockerhieu/emojicon.git'
-                   developerConnection 'scm:git@github.com:rockerhieu/emojicon.git'
-                }
-
-                licenses {
-                   license {
-                       name 'The Apache Software License, Version 2.0'
-                       url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                       distribution 'repo'
-                   }
-                }
-
-                developers {
-                   developer {
-                       id 'rockerhieu'
-                       name 'Hieu Rocker'
-                   }
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.allJava
-    classifier = 'sources'
-}
-
-artifacts {
-    archives sourcesJar
-}
-
-signing {
-    required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
-    sign configurations.archives
-}
-
-task getVersion << {
-    println "$System.env.SONATYPE_USERNAME"
-    println "$System.env.SONATYPE_PASSWORD"
-    println version
+    compile 'com.android.support:support-v4:19+'
 }
