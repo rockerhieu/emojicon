@@ -12,5 +12,6 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
+        maven { url 'https://raw.github.com/rockerhieu/mvn-repo/master/' }
     }
 }
