@@ -17,10 +17,10 @@ test:
 
   post:
     - ls
-    - ls app
-    - ls app/build
+    - ls library
+    - ls library/build
     - mkdir $CIRCLE_ARTIFACTS/lint
-    - mv app/build/outputs/lint-results* $CIRCLE_ARTIFACTS/lint
+    - mv library/build/outputs/lint-results* $CIRCLE_ARTIFACTS/lint
 
 deployment:
   staging:
