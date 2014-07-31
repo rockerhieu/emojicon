@@ -16,6 +16,7 @@
 
 package com.rockerhieu.emojicon;
 
+import java.util.Arrays;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -51,7 +52,13 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         GridView gridView = (GridView) view.findViewById(R.id.Emoji_GridView);
-        mData = getArguments() == null ? People.DATA : (Emojicon[]) getArguments().getSerializable("emojicons");
+        Bundle bundle = getArguments();
+        if (bundle == null) {
+            mData = People.DATA;
+        } else {
+            Object[] o = (Object[]) getArguments().getSerializable("emojicons");
+            mData = Arrays.asList(o).toArray(new Emojicon[o.length]);
+        }
         gridView.setAdapter(new EmojiAdapter(view.getContext(), mData));
         gridView.setOnItemClickListener(this);
     }
@@ -67,7 +74,7 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
         super.onAttach(activity);
         if (activity instanceof OnEmojiconClickedListener) {
             mOnEmojiconClickedListener = (OnEmojiconClickedListener) activity;
-        } else if(getParentFragment() instanceof OnEmojiconClickedListener) {
+        } else if (getParentFragment() instanceof OnEmojiconClickedListener) {
             mOnEmojiconClickedListener = (OnEmojiconClickedListener) getParentFragment();
         } else {
             throw new IllegalArgumentException(activity + " must implement interface " + OnEmojiconClickedListener.class.getSimpleName());
