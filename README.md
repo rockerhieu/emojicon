@@ -4,8 +4,7 @@ Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io
 
 Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
 
-`emojicon` on `develop` ![develop on Circle CI](https://circleci.com/gh/rockerhieu/emojicon/tree/develop.png?circle-token=3360549339f6271f6db44c24e23339ba75c054f4)
-`emojicon` on `master` ![master on Circle CI](https://circleci.com/gh/rockerhieu/emojicon/tree/master.png?circle-token=3360549339f6271f6db44c24e23339ba75c054f4)
+`emojicon` on `master` ![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)
 
 ## Example
 
