@@ -23,8 +23,8 @@
     <com.rockerhieu.emojicon.EmojiconTextView
             android:layout_gravity="center"
             android:id="@+id/emojicon_icon"
-            android:layout_width="32dip"
-            android:layout_height="32dip"
+            android:layout_width="36dip"
+            android:layout_height="36dip"
             emojicon:emojiconSize="30dip"
             android:gravity="center"/>
 </FrameLayout>
