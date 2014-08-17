@@ -16,6 +16,7 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@drawable/keyboard_background_holo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
     <android.support.v4.view.ViewPager
@@ -36,66 +37,71 @@
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
         <ImageButton
-                android:background="@drawable/orca_emoji_tab_background"
+                android:background="@null"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:scaleType="center"
                 android:id="@+id/emojis_tab_0_people"
-                android:src="@drawable/orca_emoji_category_people"/>
+                android:src="@drawable/ic_emoji_people_light"/>
         <View
                 android:layout_width="1px"
                 android:layout_height="match_parent"
                 android:background="#888888"/>
         <ImageButton
-                android:background="@drawable/orca_emoji_tab_background"
+                android:background="@null"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:scaleType="center"
                 android:id="@+id/emojis_tab_1_nature"
-                android:src="@drawable/orca_emoji_category_nature"/>
+                android:src="@drawable/ic_emoji_nature_light"/>
         <View
                 android:layout_width="1px"
                 android:layout_height="match_parent"
                 android:background="#888888"/>
         <ImageButton
-                android:background="@drawable/orca_emoji_tab_background"
+                android:background="@null"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:scaleType="center"
                 android:id="@+id/emojis_tab_2_objects"
-                android:src="@drawable/orca_emoji_category_objects"/>
+                android:src="@drawable/ic_emoji_objects_light"/>
         <View
                 android:layout_width="1px"
                 android:layout_height="match_parent"
                 android:background="#888888"/>
         <ImageButton
-                android:background="@drawable/orca_emoji_tab_background"
+                android:background="@null"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:scaleType="center"
                 android:id="@+id/emojis_tab_3_cars"
-                android:src="@drawable/orca_emoji_category_cars"/>
+                android:src="@drawable/ic_emoji_places_light"/>
         <View
                 android:layout_width="1px"
                 android:layout_height="match_parent"
                 android:background="#888888"/>
         <ImageButton
-                android:background="@drawable/orca_emoji_tab_background"
+                android:background="@null"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:scaleType="center"
                 android:id="@+id/emojis_tab_4_punctuation"
-                android:src="@drawable/orca_emoji_category_punctuation"/>
+                android:src="@drawable/ic_emoji_symbols_light"/>
         <View
                 android:layout_width="1px"
                 android:layout_height="match_parent"
                 android:background="#888888"/>
         <ImageButton
-                android:background="@drawable/orca_emoji_tab_dark_background"
+                android:background="@null"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:id="@+id/emojis_backspace"
-                android:src="@drawable/orca_emoji_backspace_back_normal"/>
+                android:src="@drawable/sym_keyboard_delete_holo_dark"/>
     </LinearLayout>
 </RelativeLayout>
