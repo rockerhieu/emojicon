@@ -71,6 +71,11 @@ public class Emojicon implements Serializable {
         return emoji;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Emojicon && emoji.equals(((Emojicon) o).emoji);
+    }
+
     public static final String newString(int codePoint) {
         if (Character.charCount(codePoint) == 1) {
             return String.valueOf(codePoint);
