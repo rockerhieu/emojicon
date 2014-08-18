@@ -1420,7 +1420,7 @@ public final class EmojiconHandler {
                     icon = getEmojiResource(context, unicode);
                 }
 
-                if (icon == 0 && i + skip < length) {
+                if (icon == 0 && i + skip < textLengthToProcess) {
                     int followUnicode = Character.codePointAt(text, i + skip);
                     if (followUnicode == 0x20e3) {
                         int followSkip = Character.charCount(followUnicode);
