@@ -1393,10 +1393,9 @@ public final class EmojiconHandler {
      */
     public static void addEmojis(Context context, Spannable text, int emojiSize, int index, int length) {
         int textLength = text.length();
-        if (length < 0)
-            length = textLength;
-        else if (length > textLength)
-            length = textLength;
+        int textLengthToProcessMax = textLength - index;
+        int textLengthToProcess = length < 0 || length >= textLengthToProcessMax ? textLength : (length+index);
+
         // remove spans throughout all text
         EmojiconSpan[] oldSpans = text.getSpans(0, textLength, EmojiconSpan.class);
         for (int i = 0; i < oldSpans.length; i++) {
@@ -1404,7 +1403,7 @@ public final class EmojiconHandler {
         }
 
         int skip;
-        for (int i = index; i < length; i += skip) {
+        for (int i = index; i < textLengthToProcess; i += skip) {
             skip = 0;
             int icon = 0;
             char c = text.charAt(i);
