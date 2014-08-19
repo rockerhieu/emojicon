@@ -33,6 +33,7 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     private static final String PREF_RECENTS = "recent_emojis";
     private static final String PREF_PAGE = "recent_page";
 
+    private static final Object LOCK = new Object();
     private static EmojiconRecentsManager sInstance;
 
     private Context mContext;
@@ -44,7 +45,11 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
 
     public static EmojiconRecentsManager getInstance(Context context) {
         if (sInstance == null) {
-            sInstance = new EmojiconRecentsManager(context);
+            synchronized (LOCK) {
+                if (sInstance == null) {
+                    sInstance = new EmojiconRecentsManager(context);
+                }
+            }
         }
         return sInstance;
     }
