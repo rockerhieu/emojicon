@@ -51,8 +51,8 @@ public class EmojiconTextView extends TextView {
         } else {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.Emojicon);
             mEmojiconSize = (int) a.getDimension(R.styleable.Emojicon_emojiconSize, getTextSize());
-            mTextStart = a.getInteger(R.styleable.Emojicon_textStart, 0);
-            mTextLength = a.getInteger(R.styleable.Emojicon_textLength, -1);
+            mTextStart = a.getInteger(R.styleable.Emojicon_emojiconTextStart, 0);
+            mTextLength = a.getInteger(R.styleable.Emojicon_emojiconTextLength, -1);
             a.recycle();
         }
         setText(getText());

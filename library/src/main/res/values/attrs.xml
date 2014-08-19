@@ -18,7 +18,7 @@
 <resources>
     <declare-styleable name="Emojicon">
         <attr name="emojiconSize" format="dimension"/>
-        <attr name="textStart" format="integer"/>
-        <attr name="textLength" format="integer"/>
+        <attr name="emojiconTextStart" format="integer"/>
+        <attr name="emojiconTextLength" format="integer"/>
     </declare-styleable>
 </resources>
