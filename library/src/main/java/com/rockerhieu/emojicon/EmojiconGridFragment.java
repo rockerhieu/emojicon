@@ -33,13 +33,15 @@ import com.rockerhieu.emojicon.emoji.People;
  */
 public class EmojiconGridFragment extends Fragment implements AdapterView.OnItemClickListener {
     private OnEmojiconClickedListener mOnEmojiconClickedListener;
+    private EmojiconRecents mRecents;
     private Emojicon[] mData;
 
-    protected static EmojiconGridFragment newInstance(Emojicon[] emojicons) {
+    protected static EmojiconGridFragment newInstance(Emojicon[] emojicons, EmojiconRecents recents) {
         EmojiconGridFragment emojiGridFragment = new EmojiconGridFragment();
         Bundle args = new Bundle();
         args.putSerializable("emojicons", emojicons);
         emojiGridFragment.setArguments(args);
+        emojiGridFragment.setRecents(recents);
         return emojiGridFragment;
     }
 
@@ -50,7 +52,6 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         GridView gridView = (GridView) view.findViewById(R.id.Emoji_GridView);
         Bundle bundle = getArguments();
         if (bundle == null) {
@@ -92,6 +93,14 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
         if (mOnEmojiconClickedListener != null) {
             mOnEmojiconClickedListener.onEmojiconClicked((Emojicon) parent.getItemAtPosition(position));
         }
+        if (mRecents != null) {
+            mRecents.addRecentEmoji(view.getContext(), ((Emojicon) parent
+                .getItemAtPosition(position)));
+        }
+    }
+
+    private void setRecents(EmojiconRecents recents) {
+        mRecents = recents;
     }
 
     public interface OnEmojiconClickedListener {

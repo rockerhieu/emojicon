@@ -27,6 +27,8 @@ import android.widget.TextView;
  */
 public class EmojiconTextView extends TextView {
     private int mEmojiconSize;
+    private int mTextStart = 0;
+    private int mTextLength = -1;
 
     public EmojiconTextView(Context context) {
         super(context);
@@ -49,6 +51,8 @@ public class EmojiconTextView extends TextView {
         } else {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.Emojicon);
             mEmojiconSize = (int) a.getDimension(R.styleable.Emojicon_emojiconSize, getTextSize());
+            mTextStart = a.getInteger(R.styleable.Emojicon_emojiconTextStart, 0);
+            mTextLength = a.getInteger(R.styleable.Emojicon_emojiconTextLength, -1);
             a.recycle();
         }
         setText(getText());
@@ -57,7 +61,7 @@ public class EmojiconTextView extends TextView {
     @Override
     public void setText(CharSequence text, BufferType type) {
         SpannableStringBuilder builder = new SpannableStringBuilder(text);
-        EmojiconHandler.addEmojis(getContext(), builder, mEmojiconSize);
+        EmojiconHandler.addEmojis(getContext(), builder, mEmojiconSize, mTextStart, mTextLength);
         super.setText(builder, type);
     }
 

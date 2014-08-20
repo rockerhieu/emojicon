@@ -16,6 +16,8 @@
 
 package com.rockerhieu.emojicon;
 
+import java.util.List;
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,10 @@ import com.rockerhieu.emojicon.emoji.Emojicon;
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
 class EmojiAdapter extends ArrayAdapter<Emojicon> {
+    public EmojiAdapter(Context context, List<Emojicon> data) {
+        super(context, R.layout.emojicon_item, data);
+    }
+
     public EmojiAdapter(Context context, Emojicon[] data) {
         super(context, R.layout.emojicon_item, data);
     }

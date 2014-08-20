@@ -1379,14 +1379,31 @@ public final class EmojiconHandler {
      * @param emojiSize
      */
     public static void addEmojis(Context context, Spannable text, int emojiSize) {
-        int length = text.length();
-        EmojiconSpan[] oldSpans = text.getSpans(0, length, EmojiconSpan.class);
+        addEmojis(context, text, emojiSize, 0, -1);
+    }
+
+    /**
+     * Convert emoji characters of the given Spannable to the according emojicon.
+     *
+     * @param context
+     * @param text
+     * @param emojiSize
+     * @param index
+     * @param length
+     */
+    public static void addEmojis(Context context, Spannable text, int emojiSize, int index, int length) {
+        int textLength = text.length();
+        int textLengthToProcessMax = textLength - index;
+        int textLengthToProcess = length < 0 || length >= textLengthToProcessMax ? textLength : (length+index);
+
+        // remove spans throughout all text
+        EmojiconSpan[] oldSpans = text.getSpans(0, textLength, EmojiconSpan.class);
         for (int i = 0; i < oldSpans.length; i++) {
             text.removeSpan(oldSpans[i]);
         }
 
         int skip;
-        for (int i = 0; i < length; i += skip) {
+        for (int i = index; i < textLengthToProcess; i += skip) {
             skip = 0;
             int icon = 0;
             char c = text.charAt(i);
@@ -1403,7 +1420,7 @@ public final class EmojiconHandler {
                     icon = getEmojiResource(context, unicode);
                 }
 
-                if (icon == 0 && i + skip < length) {
+                if (icon == 0 && i + skip < textLengthToProcess) {
                     int followUnicode = Character.codePointAt(text, i + skip);
                     if (followUnicode == 0x20e3) {
                         int followSkip = Character.charCount(followUnicode);
