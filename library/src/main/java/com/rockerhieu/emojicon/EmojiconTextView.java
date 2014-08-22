@@ -29,6 +29,7 @@ public class EmojiconTextView extends TextView {
     private int mEmojiconSize;
     private int mTextStart = 0;
     private int mTextLength = -1;
+    private boolean mUseSystemDefault = false;
 
     public EmojiconTextView(Context context) {
         super(context);
@@ -53,6 +54,7 @@ public class EmojiconTextView extends TextView {
             mEmojiconSize = (int) a.getDimension(R.styleable.Emojicon_emojiconSize, getTextSize());
             mTextStart = a.getInteger(R.styleable.Emojicon_emojiconTextStart, 0);
             mTextLength = a.getInteger(R.styleable.Emojicon_emojiconTextLength, -1);
+            mUseSystemDefault = a.getBoolean(R.styleable.Emojicon_emojiconUseSystemDefault, false);
             a.recycle();
         }
         setText(getText());
@@ -61,7 +63,7 @@ public class EmojiconTextView extends TextView {
     @Override
     public void setText(CharSequence text, BufferType type) {
         SpannableStringBuilder builder = new SpannableStringBuilder(text);
-        EmojiconHandler.addEmojis(getContext(), builder, mEmojiconSize, mTextStart, mTextLength);
+        EmojiconHandler.addEmojis(getContext(), builder, mEmojiconSize, mTextStart, mTextLength, mUseSystemDefault);
         super.setText(builder, type);
     }
 
@@ -70,5 +72,12 @@ public class EmojiconTextView extends TextView {
      */
     public void setEmojiconSize(int pixels) {
         mEmojiconSize = pixels;
+    }
+
+    /**
+     * Set whether to use system default emojicon
+     */
+    public void setUseSystemDefault(boolean useSystemDefault) {
+        mUseSystemDefault = useSystemDefault;
     }
 }

@@ -20,5 +20,6 @@
         <attr name="emojiconSize" format="dimension"/>
         <attr name="emojiconTextStart" format="integer"/>
         <attr name="emojiconTextLength" format="integer"/>
+        <attr name="emojiconUseSystemDefault" format="boolean"/>
     </declare-styleable>
 </resources>
