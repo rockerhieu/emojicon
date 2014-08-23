@@ -22,19 +22,32 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 import com.rockerhieu.emojicon.emoji.Emojicon;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
 class EmojiAdapter extends ArrayAdapter<Emojicon> {
+    private boolean mUseSystemDefault = false;
+
     public EmojiAdapter(Context context, List<Emojicon> data) {
         super(context, R.layout.emojicon_item, data);
+        mUseSystemDefault = false;
+    }
+
+    public EmojiAdapter(Context context, List<Emojicon> data, boolean useSystemDefault) {
+        super(context, R.layout.emojicon_item, data);
+        mUseSystemDefault = useSystemDefault;
     }
 
     public EmojiAdapter(Context context, Emojicon[] data) {
         super(context, R.layout.emojicon_item, data);
+        mUseSystemDefault = false;
+    }
+
+    public EmojiAdapter(Context context, Emojicon[] data, boolean useSystemDefault) {
+        super(context, R.layout.emojicon_item, data);
+        mUseSystemDefault = useSystemDefault;
     }
 
     @Override
@@ -43,7 +56,8 @@ class EmojiAdapter extends ArrayAdapter<Emojicon> {
         if (v == null) {
             v = View.inflate(getContext(), R.layout.emojicon_item, null);
             ViewHolder holder = new ViewHolder();
-            holder.icon = (TextView) v.findViewById(R.id.emojicon_icon);
+            holder.icon = (EmojiconTextView) v.findViewById(R.id.emojicon_icon);
+            holder.icon.setUseSystemDefault(mUseSystemDefault);
             v.setTag(holder);
         }
         Emojicon emoji = getItem(position);
@@ -53,6 +67,6 @@ class EmojiAdapter extends ArrayAdapter<Emojicon> {
     }
 
     class ViewHolder {
-        TextView icon;
+        EmojiconTextView icon;
     }
 }
