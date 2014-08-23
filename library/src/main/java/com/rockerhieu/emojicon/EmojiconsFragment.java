@@ -62,7 +62,7 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
         // we handle recents
         EmojiconRecents recents = this;
         mEmojisAdapter = new EmojisPagerAdapter(getFragmentManager(), Arrays.asList(
-                EmojiconRecentsGridFragment.newInstance(),
+                EmojiconRecentsGridFragment.newInstance(mUseSystemDefault),
                 EmojiconGridFragment.newInstance(People.DATA, recents, mUseSystemDefault),
                 EmojiconGridFragment.newInstance(Nature.DATA, recents, mUseSystemDefault),
                 EmojiconGridFragment.newInstance(Objects.DATA, recents, mUseSystemDefault),
