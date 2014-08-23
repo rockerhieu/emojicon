@@ -1418,7 +1418,9 @@ public final class EmojiconHandler {
      * @param useSystemDefault
      */
     public static void addEmojis(Context context, Spannable text, int emojiSize, int index, int length, boolean useSystemDefault) {
-        if (useSystemDefault) return;
+        if (useSystemDefault) {
+            return;
+        }
 
         int textLength = text.length();
         int textLengthToProcessMax = textLength - index;

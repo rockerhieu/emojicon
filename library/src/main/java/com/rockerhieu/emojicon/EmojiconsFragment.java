@@ -284,9 +284,7 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mUseSystemDefault = getArguments().getBoolean(USE_SYSTEM_DEFAULT_KEY);
-        }
-        else
-        {
+        } else {
             mUseSystemDefault = false;
         }
     }
