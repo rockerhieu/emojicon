@@ -35,9 +35,8 @@
             emojicon:emojiconSize="28sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <fragment
+    <FrameLayout
             android:id="@+id/emojicons"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            class="com.rockerhieu.emojicon.EmojiconsFragment"/>
+            android:layout_height="fill_parent"/>
 </LinearLayout>
