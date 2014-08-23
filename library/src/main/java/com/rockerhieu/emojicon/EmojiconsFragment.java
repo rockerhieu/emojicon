@@ -42,6 +42,17 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
     private View[] mEmojiTabs;
     private PagerAdapter mEmojisAdapter;
     private EmojiconRecentsManager mRecentsManager;
+    private boolean mUseSystemDefault = false;
+
+    private static final String USE_SYSTEM_DEFAULT_KEY = "useSystemDefaults";
+
+    public static EmojiconsFragment newInstance(boolean useSystemDefault) {
+        EmojiconsFragment fragment = new EmojiconsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(USE_SYSTEM_DEFAULT_KEY, useSystemDefault);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,11 +63,11 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
         EmojiconRecents recents = this;
         mEmojisAdapter = new EmojisPagerAdapter(getFragmentManager(), Arrays.asList(
                 EmojiconRecentsGridFragment.newInstance(),
-                EmojiconGridFragment.newInstance(People.DATA, recents),
-                EmojiconGridFragment.newInstance(Nature.DATA, recents),
-                EmojiconGridFragment.newInstance(Objects.DATA, recents),
-                EmojiconGridFragment.newInstance(Places.DATA, recents),
-                EmojiconGridFragment.newInstance(Symbols.DATA, recents)
+                EmojiconGridFragment.newInstance(People.DATA, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Nature.DATA, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Objects.DATA, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Places.DATA, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Symbols.DATA, recents, mUseSystemDefault)
         ));
         emojisPager.setAdapter(mEmojisAdapter);
 
@@ -266,5 +277,17 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
 
     public interface OnEmojiconBackspaceClickedListener {
         void onEmojiconBackspaceClicked(View v);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mUseSystemDefault = getArguments().getBoolean(USE_SYSTEM_DEFAULT_KEY);
+        }
+        else
+        {
+            mUseSystemDefault = false;
+        }
     }
 }
