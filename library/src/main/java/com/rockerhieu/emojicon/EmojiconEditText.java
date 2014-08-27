@@ -54,7 +54,7 @@ public class EmojiconEditText extends EditText {
 
     @Override
     protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
-        EmojiconHandler.addEmojis(getContext(), getText(), mEmojiconSize, mUseSystemDefault);
+        this.updateText();
     }
 
     /**
@@ -62,6 +62,12 @@ public class EmojiconEditText extends EditText {
      */
     public void setEmojiconSize(int pixels) {
         mEmojiconSize = pixels;
+
+        this.updateText();
+    }
+    
+    private void updateText() {
+        EmojiconHandler.addEmojis(getContext(), getText(), mEmojiconSize, mUseSystemDefault);
     }
 
     /**
