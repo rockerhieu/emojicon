@@ -29,6 +29,7 @@ import android.content.SharedPreferences;
 */
 public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     private static final String DELIMITER = ",";
+    private static final int MAX_SIZE = 40;
     private static final String PREFERENCE_NAME = "emojicon";
     private static final String PREF_RECENTS = "recent_emojis";
     private static final String PREF_PAGE = "recent_page";
@@ -74,6 +75,11 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     @Override
     public boolean add(Emojicon object) {
         boolean ret = super.add(object);
+
+        if (this.size() > EmojiconRecentsManager.MAX_SIZE) {
+            super.remove(0);
+        }
+
         saveRecents();
         return ret;
     }
@@ -81,6 +87,15 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     @Override
     public void add(int index, Emojicon object) {
         super.add(index, object);
+
+        if (this.size() > EmojiconRecentsManager.MAX_SIZE) {
+            if (index == 0) {
+                super.remove(EmojiconRecentsManager.MAX_SIZE);
+            } else {
+                super.remove(0);
+            }
+        }
+
         saveRecents();
     }
 
