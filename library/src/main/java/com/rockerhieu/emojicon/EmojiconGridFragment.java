@@ -35,11 +35,19 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
     private OnEmojiconClickedListener mOnEmojiconClickedListener;
     private EmojiconRecents mRecents;
     private Emojicon[] mData;
+    private boolean mUseSystemDefault = false;
+
+    private static final String USE_SYSTEM_DEFAULT_KEY = "useSystemDefaults";
 
     protected static EmojiconGridFragment newInstance(Emojicon[] emojicons, EmojiconRecents recents) {
+        return newInstance(emojicons, recents, false);
+    }
+
+    protected static EmojiconGridFragment newInstance(Emojicon[] emojicons, EmojiconRecents recents, boolean useSystemDefault) {
         EmojiconGridFragment emojiGridFragment = new EmojiconGridFragment();
         Bundle args = new Bundle();
         args.putSerializable("emojicons", emojicons);
+        args.putBoolean(USE_SYSTEM_DEFAULT_KEY, useSystemDefault);
         emojiGridFragment.setArguments(args);
         emojiGridFragment.setRecents(recents);
         return emojiGridFragment;
@@ -56,11 +64,13 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
         Bundle bundle = getArguments();
         if (bundle == null) {
             mData = People.DATA;
+            mUseSystemDefault = false;
         } else {
             Object[] o = (Object[]) getArguments().getSerializable("emojicons");
             mData = Arrays.asList(o).toArray(new Emojicon[o.length]);
+            mUseSystemDefault = bundle.getBoolean(USE_SYSTEM_DEFAULT_KEY);
         }
-        gridView.setAdapter(new EmojiAdapter(view.getContext(), mData));
+        gridView.setAdapter(new EmojiAdapter(view.getContext(), mData, mUseSystemDefault));
         gridView.setOnItemClickListener(this);
     }
 

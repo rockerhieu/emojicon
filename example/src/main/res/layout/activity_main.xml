@@ -22,6 +22,14 @@
               android:orientation="vertical"
               tools:context="com.rockerhieu.emojicon.example.MainActivity$PlaceholderFragment">
 
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_system_default"
+        android:id="@+id/use_system_default"
+        android:checked="false"/>
+
     <com.rockerhieu.emojicon.EmojiconTextView
             android:id="@+id/txtEmojicon"
             android:text="@string/i_love_emojicon"
@@ -35,9 +43,8 @@
             emojicon:emojiconSize="28sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <fragment
+    <FrameLayout
             android:id="@+id/emojicons"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            class="com.rockerhieu.emojicon.EmojiconsFragment"/>
+            android:layout_height="fill_parent"/>
 </LinearLayout>

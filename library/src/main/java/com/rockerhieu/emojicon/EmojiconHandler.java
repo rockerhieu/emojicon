@@ -1379,7 +1379,7 @@ public final class EmojiconHandler {
      * @param emojiSize
      */
     public static void addEmojis(Context context, Spannable text, int emojiSize) {
-        addEmojis(context, text, emojiSize, 0, -1);
+        addEmojis(context, text, emojiSize, 0, -1, false);
     }
 
     /**
@@ -1392,6 +1392,36 @@ public final class EmojiconHandler {
      * @param length
      */
     public static void addEmojis(Context context, Spannable text, int emojiSize, int index, int length) {
+        addEmojis(context, text, emojiSize, index, length, false);
+    }
+
+    /**
+     * Convert emoji characters of the given Spannable to the according emojicon.
+     *
+     * @param context
+     * @param text
+     * @param emojiSize
+     * @param useSystemDefault
+     */
+    public static void addEmojis(Context context, Spannable text, int emojiSize, boolean useSystemDefault) {
+        addEmojis(context, text, emojiSize, 0, -1, useSystemDefault);
+    }
+
+    /**
+     * Convert emoji characters of the given Spannable to the according emojicon.
+     *
+     * @param context
+     * @param text
+     * @param emojiSize
+     * @param index
+     * @param length
+     * @param useSystemDefault
+     */
+    public static void addEmojis(Context context, Spannable text, int emojiSize, int index, int length, boolean useSystemDefault) {
+        if (useSystemDefault) {
+            return;
+        }
+
         int textLength = text.length();
         int textLengthToProcessMax = textLength - index;
         int textLengthToProcess = length < 0 || length >= textLengthToProcessMax ? textLength : (length+index);
