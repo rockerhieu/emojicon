@@ -29,13 +29,13 @@ import android.content.SharedPreferences;
 */
 public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     private static final String DELIMITER = ",";
-    private static final int MAX_SIZE = 40;
     private static final String PREFERENCE_NAME = "emojicon";
     private static final String PREF_RECENTS = "recent_emojis";
     private static final String PREF_PAGE = "recent_page";
 
     private static final Object LOCK = new Object();
     private static EmojiconRecentsManager sInstance;
+    private static int maximumSize = 40;
 
     private Context mContext;
 
@@ -76,7 +76,7 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     public boolean add(Emojicon object) {
         boolean ret = super.add(object);
 
-        if (this.size() > EmojiconRecentsManager.MAX_SIZE) {
+        while (this.size() > EmojiconRecentsManager.maximumSize) {
             super.remove(0);
         }
 
@@ -88,10 +88,12 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     public void add(int index, Emojicon object) {
         super.add(index, object);
 
-        if (this.size() > EmojiconRecentsManager.MAX_SIZE) {
-            if (index == 0) {
-                super.remove(EmojiconRecentsManager.MAX_SIZE);
-            } else {
+        if (index == 0) {
+            while (this.size() > EmojiconRecentsManager.maximumSize) {
+                super.remove(EmojiconRecentsManager.maximumSize);
+            }
+        } else {
+            while (this.size() > EmojiconRecentsManager.maximumSize) {
                 super.remove(0);
             }
         }
@@ -133,4 +135,7 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
         prefs.edit().putString(PREF_RECENTS, str.toString()).commit();
     }
 
+    public static void setMaximumSize(int maximumSize) {
+        EmojiconRecentsManager.maximumSize = maximumSize;
+    }
 }
