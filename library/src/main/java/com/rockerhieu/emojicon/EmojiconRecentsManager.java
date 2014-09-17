@@ -35,6 +35,7 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
 
     private static final Object LOCK = new Object();
     private static EmojiconRecentsManager sInstance;
+    private static int maximumSize = 40;
 
     private Context mContext;
 
@@ -74,6 +75,11 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     @Override
     public boolean add(Emojicon object) {
         boolean ret = super.add(object);
+
+        while (this.size() > EmojiconRecentsManager.maximumSize) {
+            super.remove(0);
+        }
+
         saveRecents();
         return ret;
     }
@@ -81,6 +87,17 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     @Override
     public void add(int index, Emojicon object) {
         super.add(index, object);
+
+        if (index == 0) {
+            while (this.size() > EmojiconRecentsManager.maximumSize) {
+                super.remove(EmojiconRecentsManager.maximumSize);
+            }
+        } else {
+            while (this.size() > EmojiconRecentsManager.maximumSize) {
+                super.remove(0);
+            }
+        }
+
         saveRecents();
     }
 
@@ -118,4 +135,7 @@ public class EmojiconRecentsManager extends ArrayList<Emojicon> {
         prefs.edit().putString(PREF_RECENTS, str.toString()).commit();
     }
 
+    public static void setMaximumSize(int maximumSize) {
+        EmojiconRecentsManager.maximumSize = maximumSize;
+    }
 }
