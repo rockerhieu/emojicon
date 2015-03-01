@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.1"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 8
@@ -57,6 +57,6 @@ if (project.hasProperty('keystorepassword')) {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:19+'
+    compile 'com.android.support:appcompat-v7:21+'
     compile project(':library')
 }
