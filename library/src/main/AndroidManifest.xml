@@ -1,10 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rockerhieu.emojicon">
+          package="com.rockerhieu.emojicon">
 
-    <application
-        android:label="@string/app_name"
-        android:icon="@drawable/ic_launcher">
-
-    </application>
-
+    <application android:label="@string/app_name"/>
 </manifest>

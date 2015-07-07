@@ -5,6 +5,7 @@ Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io
 Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
 
 `emojicon` on `master` ![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)
+`emojicon` on `maven central` ![emojicon on Maven Central](https://maven-badges.herokuapp.com/maven-central/com.rockerhieu.emojicon/library/badge.svg)
 
 ## Example
 
@@ -51,7 +52,7 @@ _Note: You can change the size of emojis in XML layout through attribute `emojic
 Via Gradle:
 
 ```
-compile 'com.rockerhieu.emojicon:library:1.2'
+compile 'com.rockerhieu.emojicon:library:<latest-version>'
 ```
 
 Releases can be found on either Maven Central or [Emojicon's Releases](https://github.com/rockerhieu/emojicon/releases/)
