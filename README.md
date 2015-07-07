@@ -5,6 +5,7 @@ Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io
 Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
 
 `emojicon` on `master` ![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)
+
 `emojicon` on `maven central` ![emojicon on Maven Central](https://maven-badges.herokuapp.com/maven-central/com.rockerhieu.emojicon/library/badge.svg)
 
 ## Example
