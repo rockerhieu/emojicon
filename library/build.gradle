@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
 apply from: 'gradle-mvn-push.gradle'
 
-ext.emojiconVersionName = "1.2-SNAPSHOT"
+ext.emojiconVersionName = "1.2"
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 21
-        versionCode 3
+        targetSdkVersion 22
+        versionCode 4
         versionName emojiconVersionName
     }
     lintOptions {
@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:21+'
+    compile 'com.android.support:support-v4:22.2.0'
 }
