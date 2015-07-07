@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply from: 'gradle-mvn-push.gradle'
 
-ext.emojiconVersionName = "1.2"
+ext.emojiconVersionName = "1.3-SNAPSHOT"
 
 android {
     compileSdkVersion 22
@@ -10,7 +10,7 @@ android {
     defaultConfig {
         minSdkVersion 7
         targetSdkVersion 22
-        versionCode 4
+        versionCode 5
         versionName emojiconVersionName
     }
     lintOptions {
