@@ -47,8 +47,8 @@ class EmojiconSpan extends DynamicDrawableSpan {
 
     private WeakReference<Drawable> mDrawableRef;
 
-    public EmojiconSpan(Context context, int resourceId, int size, int textSize) {
-        super(DynamicDrawableSpan.ALIGN_BASELINE);
+    public EmojiconSpan(Context context, int resourceId, int size, int alignment, int textSize) {
+        super(alignment);
         mContext = context;
         mResourceId = resourceId;
         mWidth = mHeight = mSize = size;

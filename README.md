@@ -20,6 +20,7 @@ Fore more information please see [the website](http://rockerhieu.github.io/emoji
     <com.rockerhieu.emojicon.EmojiconTextView
             android:id="@+id/txtEmojicon"
             android:text="I \ue32d emojicon"
+            emojicon:emojiconAlignment="baseline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -39,7 +40,7 @@ Fore more information please see [the website](http://rockerhieu.github.io/emoji
 
 ![image](https://github.com/rockerhieu/emojicon/raw/master/images/sample.jpg)
 
-_Note: You can change the size of emojis in XML layout through attribute `emojiconSize`._
+_Note: You can change the size and alignment of emojis in XML layout through attribute `emojiconSize` and `emojiconAlignment`, respectively._
 
 ## Usage
 

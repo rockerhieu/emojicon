@@ -33,6 +33,7 @@
     <com.rockerhieu.emojicon.EmojiconTextView
             android:id="@+id/txtEmojicon"
             android:text="@string/i_love_emojicon"
+            emojicon:emojiconAlignment="baseline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
