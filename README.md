@@ -1,12 +1,10 @@
+![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master) ![emojicon on Maven Central](https://maven-badges.herokuapp.com/maven-central/com.rockerhieu.emojicon/library/badge.svg)
+
 ## Emojicon
 
 Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io/emojicon/) is a library to implement such a thing for Android.
 
 Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
-
-`emojicon` on `master` ![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)
-
-`emojicon` on `maven central` ![emojicon on Maven Central](https://maven-badges.herokuapp.com/maven-central/com.rockerhieu.emojicon/library/badge.svg)
 
 ## Example
 
