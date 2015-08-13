@@ -66,7 +66,7 @@ class EmojiAdapter extends ArrayAdapter<Emojicon> {
         return v;
     }
 
-    class ViewHolder {
+    static class ViewHolder {
         EmojiconTextView icon;
     }
 }
