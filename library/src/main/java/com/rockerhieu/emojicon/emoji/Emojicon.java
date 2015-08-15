@@ -16,18 +16,49 @@
 
 package com.rockerhieu.emojicon.emoji;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
-public class Emojicon implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Emojicon implements Parcelable {
+
+    public static final Creator<Emojicon> CREATOR = new Creator<Emojicon>() {
+        @Override
+        public Emojicon createFromParcel(Parcel in) {
+            return new Emojicon(in);
+        }
+
+        @Override
+        public Emojicon[] newArray(int size) {
+            return new Emojicon[size];
+        }
+    };
+
     private int icon;
+
     private char value;
+
     private String emoji;
 
+    public Emojicon(int icon, char value, String emoji) {
+        this.icon = icon;
+        this.value = value;
+        this.emoji = emoji;
+    }
+
+    public Emojicon(Parcel in) {
+        this.icon = in.readInt();
+        this.value = (char) in.readInt();
+        this.emoji = in.readString();
+    }
+
     private Emojicon() {
+    }
+
+    public Emojicon(String emoji) {
+        this.emoji = emoji;
     }
 
     public static Emojicon fromResource(int icon, int value) {
@@ -55,8 +86,24 @@ public class Emojicon implements Serializable {
         return emoji;
     }
 
-    public Emojicon(String emoji) {
-        this.emoji = emoji;
+    public static final String newString(int codePoint) {
+        if (Character.charCount(codePoint) == 1) {
+            return String.valueOf(codePoint);
+        } else {
+            return new String(Character.toChars(codePoint));
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(icon);
+        dest.writeInt(value);
+        dest.writeString(emoji);
     }
 
     public char getValue() {
@@ -81,11 +128,4 @@ public class Emojicon implements Serializable {
         return emoji.hashCode();
     }
 
-    public static final String newString(int codePoint) {
-        if (Character.charCount(codePoint) == 1) {
-            return String.valueOf(codePoint);
-        } else {
-            return new String(Character.toChars(codePoint));
-        }
-    }
 }
