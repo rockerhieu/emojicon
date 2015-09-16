@@ -55,8 +55,6 @@ Via Gradle:
 compile 'com.rockerhieu.emojicon:library:<latest-version>'
 ```
 
-Releases can be found on either Maven Central or [Emojicon's Releases](https://github.com/rockerhieu/emojicon/releases/)
-
 ## Building in Eclipse
 
 ![Go home you're drunk](http://img2.wikia.nocookie.net/__cb20130819142928/cardfight/images/thumb/5/55/Go-home-youre-drunk.jpg/500px-Go-home-youre-drunk.jpg)
