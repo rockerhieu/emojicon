@@ -21,6 +21,7 @@ import com.rockerhieu.emojicon.emoji.People;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,7 +68,11 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
             mData = People.DATA;
             mUseSystemDefault = false;
         } else {
-            mData = (Emojicon[]) getArguments().getParcelableArray(EMOJICONS_KEY);
+            Parcelable[] parcels = bundle.getParcelableArray(EMOJICONS_KEY);
+            mData = new Emojicon[parcels.length];
+            for (int i = 0; i < parcels.length; i++) {
+                mData[i] = (Emojicon) parcels[i];
+            }
             mUseSystemDefault = bundle.getBoolean(USE_SYSTEM_DEFAULT_KEY);
         }
         gridView.setAdapter(new EmojiAdapter(view.getContext(), mData, mUseSystemDefault));
