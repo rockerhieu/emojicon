@@ -46,6 +46,7 @@ _Note: You can change the size and alignment of emojis in XML layout through att
 
 * `EmojiconTextView`: a `TextView` which can render emojis.
 * `EmojiconEditText`: a `EditText` which can render emojis.
+* `EmojiconMultiAutoCompleteTextText`: a `MultiAutoCompleteTextText` which can render emojis.
 * `EmojiconGridFragment`: a fragment contains emojis in a `GridView` for the user to choose.
 * `EmojiconsFragment`: a fragment contains many set of emojis for the user to choose.
 
