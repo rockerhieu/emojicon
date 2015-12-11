@@ -28,6 +28,7 @@ public final class EmojiconHandler {
 
     private static final SparseIntArray sEmojisMap = new SparseIntArray(1029);
     private static final SparseIntArray sSoftbanksMap = new SparseIntArray(471);
+    private static Map<String, Integer> sEmojisModifiedMap = new HashMap<>();
 
     static {
         // People
@@ -1683,7 +1684,17 @@ public final class EmojiconHandler {
                         String hexFollowUnicode = Integer.toHexString(followUnicode);
                         
                         String resourceName = "emoji_" + hexUnicode + "_" + hexFollowUnicode;
-                        int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getApplicationContext().getPackageName());
+
+                        int resourceId = 0;
+                        if(sEmojisModifiedMap.containsKey(resourceName)){
+                            resourceId = sEmojisModifiedMap.get(resourceName);
+                        }else{
+                            resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getApplicationContext().getPackageName());
+                            if(resourceId != 0){
+                                sEmojisModifiedMap.put(resourceName, resourceId);
+                            }
+                        }
+                        
                         if(resourceId == 0){
                             followSkip = 0;
                         }else{
