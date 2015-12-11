@@ -19,6 +19,9 @@ import android.content.Context;
 import android.text.Spannable;
 import android.util.SparseIntArray;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
