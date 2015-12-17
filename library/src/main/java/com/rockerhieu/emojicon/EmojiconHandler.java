@@ -19,6 +19,9 @@ import android.content.Context;
 import android.text.Spannable;
 import android.util.SparseIntArray;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
@@ -26,8 +29,9 @@ public final class EmojiconHandler {
     private EmojiconHandler() {
     }
 
-    private static final SparseIntArray sEmojisMap = new SparseIntArray(846);
+    private static final SparseIntArray sEmojisMap = new SparseIntArray(1029);
     private static final SparseIntArray sSoftbanksMap = new SparseIntArray(471);
+    private static Map<String, Integer> sEmojisModifiedMap = new HashMap<>();
 
     static {
         // People
@@ -1357,6 +1361,189 @@ public final class EmojiconHandler {
         sSoftbanksMap.put(0xe535, R.drawable.emoji_1f17e);
         sSoftbanksMap.put(0xe536, R.drawable.emoji_1f43e);
         sSoftbanksMap.put(0xe537, R.drawable.emoji_2122);
+        
+        sEmojisMap.put(0x1f642, R.drawable.emoji_1f642);
+        sEmojisMap.put(0x1f917, R.drawable.emoji_1f917);
+        sEmojisMap.put(0x1f914, R.drawable.emoji_1f914);
+        sEmojisMap.put(0x1f644, R.drawable.emoji_1f644);
+        sEmojisMap.put(0x1f910, R.drawable.emoji_1f910);
+        sEmojisMap.put(0x1f913, R.drawable.emoji_1f913);
+        sEmojisMap.put(0x2639, R.drawable.emoji_2639);
+        sEmojisMap.put(0x1f641, R.drawable.emoji_1f641);
+        sEmojisMap.put(0x1f643, R.drawable.emoji_1f643);
+        sEmojisMap.put(0x1f912, R.drawable.emoji_1f912);
+        sEmojisMap.put(0x1f915, R.drawable.emoji_1f915);
+        sEmojisMap.put(0x1f911, R.drawable.emoji_1f911);
+        sEmojisMap.put(0x26d1, R.drawable.emoji_26d1);
+        sEmojisMap.put(0x1f575, R.drawable.emoji_1f575);
+        sEmojisMap.put(0x1f5e3, R.drawable.emoji_1f5e3);
+        sEmojisMap.put(0x1f574, R.drawable.emoji_1f574);
+        sEmojisMap.put(0x1f595, R.drawable.emoji_1f595);
+        sEmojisMap.put(0x1f918, R.drawable.emoji_1f918);
+        sEmojisMap.put(0x1f590, R.drawable.emoji_1f590);
+        sEmojisMap.put(0x270d, R.drawable.emoji_270d);
+        sEmojisMap.put(0x1f441, R.drawable.emoji_1f441);
+        sEmojisMap.put(0x2763, R.drawable.emoji_2763);
+        sEmojisMap.put(0x1f573, R.drawable.emoji_1f573);
+        sEmojisMap.put(0x1f5ef, R.drawable.emoji_1f5ef);
+        sEmojisMap.put(0x1f576, R.drawable.emoji_1f576);
+        sEmojisMap.put(0x1f6cd, R.drawable.emoji_1f6cd);
+        sEmojisMap.put(0x1f4ff, R.drawable.emoji_1f4ff);
+        sEmojisMap.put(0x2620, R.drawable.emoji_2620);
+        sEmojisMap.put(0x1f916, R.drawable.emoji_1f916);
+        sEmojisMap.put(0x1f981, R.drawable.emoji_1f981);
+        sEmojisMap.put(0x1f984, R.drawable.emoji_1f984);
+        sEmojisMap.put(0x1f43f, R.drawable.emoji_1f43f);
+        sEmojisMap.put(0x1f983, R.drawable.emoji_1f983);
+        sEmojisMap.put(0x1f54a, R.drawable.emoji_1f54a);
+        sEmojisMap.put(0x1f980, R.drawable.emoji_1f980);
+        sEmojisMap.put(0x1f577, R.drawable.emoji_1f577);
+        sEmojisMap.put(0x1f578, R.drawable.emoji_1f578);
+        sEmojisMap.put(0x1f982, R.drawable.emoji_1f982);
+        sEmojisMap.put(0x1f3f5, R.drawable.emoji_1f3f5);
+        sEmojisMap.put(0x2618, R.drawable.emoji_2618);
+        sEmojisMap.put(0x1f336, R.drawable.emoji_1f336);
+        sEmojisMap.put(0x1f9c0, R.drawable.emoji_1f9c0);
+        sEmojisMap.put(0x1f32d, R.drawable.emoji_1f32d);
+        sEmojisMap.put(0x1f32e, R.drawable.emoji_1f32e);
+        sEmojisMap.put(0x1f32f, R.drawable.emoji_1f32f);
+        sEmojisMap.put(0x1f37f, R.drawable.emoji_1f37f);
+        sEmojisMap.put(0x1f37e, R.drawable.emoji_1f37e);
+        sEmojisMap.put(0x1f37d, R.drawable.emoji_1f37d);
+        sEmojisMap.put(0x1f3fa, R.drawable.emoji_1f3fa);
+        sEmojisMap.put(0x1f5fa, R.drawable.emoji_1f5fa);
+        sEmojisMap.put(0x1f3d4, R.drawable.emoji_1f3d4);
+        sEmojisMap.put(0x26f0, R.drawable.emoji_26f0);
+        sEmojisMap.put(0x1f3d5, R.drawable.emoji_1f3d5);
+        sEmojisMap.put(0x1f3d6, R.drawable.emoji_1f3d6);
+        sEmojisMap.put(0x1f3dc, R.drawable.emoji_1f3dc);
+        sEmojisMap.put(0x1f3dd, R.drawable.emoji_1f3dd);
+        sEmojisMap.put(0x1f3de, R.drawable.emoji_1f3de);
+        sEmojisMap.put(0x1f3df, R.drawable.emoji_1f3df);
+        sEmojisMap.put(0x1f3db, R.drawable.emoji_1f3db);
+        sEmojisMap.put(0x1f3d7, R.drawable.emoji_1f3d7);
+        sEmojisMap.put(0x1f3d8, R.drawable.emoji_1f3d8);
+        sEmojisMap.put(0x1f3d9, R.drawable.emoji_1f3d9);
+        sEmojisMap.put(0x1f3da, R.drawable.emoji_1f3da);
+        sEmojisMap.put(0x1f6d0, R.drawable.emoji_1f6d0);
+        sEmojisMap.put(0x1f54b, R.drawable.emoji_1f54b);
+        sEmojisMap.put(0x1f54c, R.drawable.emoji_1f54c);
+        sEmojisMap.put(0x1f54d, R.drawable.emoji_1f54d);
+        sEmojisMap.put(0x1f5bc, R.drawable.emoji_1f5bc);
+        sEmojisMap.put(0x1f6e2, R.drawable.emoji_1f6e2);
+        sEmojisMap.put(0x1f6e3, R.drawable.emoji_1f6e3);
+        sEmojisMap.put(0x1f6e4, R.drawable.emoji_1f6e4);
+        sEmojisMap.put(0x1f6f3, R.drawable.emoji_1f6f3);
+        sEmojisMap.put(0x26f4, R.drawable.emoji_26f4);
+        sEmojisMap.put(0x1f6e5, R.drawable.emoji_1f6e5);
+        sEmojisMap.put(0x1f6e9, R.drawable.emoji_1f6e9);
+        sEmojisMap.put(0x1f6eb, R.drawable.emoji_1f6eb);
+        sEmojisMap.put(0x1f6ec, R.drawable.emoji_1f6ec);
+        sEmojisMap.put(0x1f6f0, R.drawable.emoji_1f6f0);
+        sEmojisMap.put(0x1f6ce, R.drawable.emoji_1f6ce);
+        sEmojisMap.put(0x1f6cc, R.drawable.emoji_1f6cc);
+        sEmojisMap.put(0x1f6cf, R.drawable.emoji_1f6cf);
+        sEmojisMap.put(0x1f6cb, R.drawable.emoji_1f6cb);
+        sEmojisMap.put(0x23f1, R.drawable.emoji_23f1);
+        sEmojisMap.put(0x23f2, R.drawable.emoji_23f2);
+        sEmojisMap.put(0x1f570, R.drawable.emoji_1f570);
+        sEmojisMap.put(0x1f321, R.drawable.emoji_1f321);
+        sEmojisMap.put(0x26c8, R.drawable.emoji_26c8);
+        sEmojisMap.put(0x1f324, R.drawable.emoji_1f324);
+        sEmojisMap.put(0x1f325, R.drawable.emoji_1f325);
+        sEmojisMap.put(0x1f326, R.drawable.emoji_1f326);
+        sEmojisMap.put(0x1f327, R.drawable.emoji_1f327);
+        sEmojisMap.put(0x1f328, R.drawable.emoji_1f328);
+        sEmojisMap.put(0x1f329, R.drawable.emoji_1f329);
+        sEmojisMap.put(0x1f32a, R.drawable.emoji_1f32a);
+        sEmojisMap.put(0x1f32b, R.drawable.emoji_1f32b);
+        sEmojisMap.put(0x1f32c, R.drawable.emoji_1f32c);
+        sEmojisMap.put(0x2602, R.drawable.emoji_2602);
+        sEmojisMap.put(0x26f1, R.drawable.emoji_26f1);
+        sEmojisMap.put(0x2603, R.drawable.emoji_2603);
+        sEmojisMap.put(0x2604, R.drawable.emoji_2604);
+        sEmojisMap.put(0x1f54e, R.drawable.emoji_1f54e);
+        sEmojisMap.put(0x1f396, R.drawable.emoji_1f396);
+        sEmojisMap.put(0x1f397, R.drawable.emoji_1f397);
+        sEmojisMap.put(0x1f39e, R.drawable.emoji_1f39e);
+        sEmojisMap.put(0x1f39f, R.drawable.emoji_1f39f);
+        sEmojisMap.put(0x1f3f7, R.drawable.emoji_1f3f7);
+        sEmojisMap.put(0x1f3cc, R.drawable.emoji_1f3cc);
+        sEmojisMap.put(0x26f8, R.drawable.emoji_26f8);
+        sEmojisMap.put(0x26f7, R.drawable.emoji_26f7);
+        sEmojisMap.put(0x26f9, R.drawable.emoji_26f9);
+        sEmojisMap.put(0x1f3cb, R.drawable.emoji_1f3cb);
+        sEmojisMap.put(0x1f3ce, R.drawable.emoji_1f3ce);
+        sEmojisMap.put(0x1f3cd, R.drawable.emoji_1f3cd);
+        sEmojisMap.put(0x1f3c5, R.drawable.emoji_1f3c5);
+        sEmojisMap.put(0x1f3cf, R.drawable.emoji_1f3cf);
+        sEmojisMap.put(0x1f3d0, R.drawable.emoji_1f3d0);
+        sEmojisMap.put(0x1f3d1, R.drawable.emoji_1f3d1);
+        sEmojisMap.put(0x1f3d2, R.drawable.emoji_1f3d2);
+        sEmojisMap.put(0x1f3d3, R.drawable.emoji_1f3d3);
+        sEmojisMap.put(0x1f3f8, R.drawable.emoji_1f3f8);
+        sEmojisMap.put(0x1f579, R.drawable.emoji_1f579);
+        sEmojisMap.put(0x23ed, R.drawable.emoji_23ed);
+        sEmojisMap.put(0x23ef, R.drawable.emoji_23ef);
+        sEmojisMap.put(0x23ee, R.drawable.emoji_23ee);
+        sEmojisMap.put(0x23f8, R.drawable.emoji_23f8);
+        sEmojisMap.put(0x23f9, R.drawable.emoji_23f9);
+        sEmojisMap.put(0x23fa, R.drawable.emoji_23fa);
+        sEmojisMap.put(0x1f399, R.drawable.emoji_1f399);
+        sEmojisMap.put(0x1f39a, R.drawable.emoji_1f39a);
+        sEmojisMap.put(0x1f39b, R.drawable.emoji_1f39b);
+        sEmojisMap.put(0x1f5a5, R.drawable.emoji_1f5a5);
+        sEmojisMap.put(0x1f5a8, R.drawable.emoji_1f5a8);
+        sEmojisMap.put(0x2328, R.drawable.emoji_2328);
+        sEmojisMap.put(0x1f5b1, R.drawable.emoji_1f5b1);
+        sEmojisMap.put(0x1f5b2, R.drawable.emoji_1f5b2);
+        sEmojisMap.put(0x1f4fd, R.drawable.emoji_1f4fd);
+        sEmojisMap.put(0x1f4f8, R.drawable.emoji_1f4f8);
+        sEmojisMap.put(0x1f56f, R.drawable.emoji_1f56f);
+        sEmojisMap.put(0x1f5de, R.drawable.emoji_1f5de);
+        sEmojisMap.put(0x1f5f3, R.drawable.emoji_1f5f3);
+        sEmojisMap.put(0x1f58b, R.drawable.emoji_1f58b);
+        sEmojisMap.put(0x1f58a, R.drawable.emoji_1f58a);
+        sEmojisMap.put(0x1f58c, R.drawable.emoji_1f58c);
+        sEmojisMap.put(0x1f58d, R.drawable.emoji_1f58d);
+        sEmojisMap.put(0x1f5c2, R.drawable.emoji_1f5c2);
+        sEmojisMap.put(0x1f5d2, R.drawable.emoji_1f5d2);
+        sEmojisMap.put(0x1f5d3, R.drawable.emoji_1f5d3);
+        sEmojisMap.put(0x1f587, R.drawable.emoji_1f587);
+        sEmojisMap.put(0x1f5c3, R.drawable.emoji_1f5c3);
+        sEmojisMap.put(0x1f5c4, R.drawable.emoji_1f5c4);
+        sEmojisMap.put(0x1f5d1, R.drawable.emoji_1f5d1);
+        sEmojisMap.put(0x1f5dd, R.drawable.emoji_1f5dd);
+        sEmojisMap.put(0x26cf, R.drawable.emoji_26cf);
+        sEmojisMap.put(0x2692, R.drawable.emoji_2692);
+        sEmojisMap.put(0x1f6e0, R.drawable.emoji_1f6e0);
+        sEmojisMap.put(0x2699, R.drawable.emoji_2699);
+        sEmojisMap.put(0x1f5dc, R.drawable.emoji_1f5dc);
+        sEmojisMap.put(0x2697, R.drawable.emoji_2697);
+        sEmojisMap.put(0x2696, R.drawable.emoji_2696);
+        sEmojisMap.put(0x26d3, R.drawable.emoji_26d3);
+        sEmojisMap.put(0x1f5e1, R.drawable.emoji_1f5e1);
+        sEmojisMap.put(0x2694, R.drawable.emoji_2694);
+        sEmojisMap.put(0x1f6e1, R.drawable.emoji_1f6e1);
+        sEmojisMap.put(0x1f3f9, R.drawable.emoji_1f3f9);
+        sEmojisMap.put(0x26b0, R.drawable.emoji_26b0);
+        sEmojisMap.put(0x26b1, R.drawable.emoji_26b1);
+        sEmojisMap.put(0x1f3f3, R.drawable.emoji_1f3f3);
+        sEmojisMap.put(0x1f3f4, R.drawable.emoji_1f3f4);
+        sEmojisMap.put(0x269c, R.drawable.emoji_269c);
+        sEmojisMap.put(0x269b, R.drawable.emoji_269b);
+        sEmojisMap.put(0x1f549, R.drawable.emoji_1f549);
+        sEmojisMap.put(0x2721, R.drawable.emoji_2721);
+        sEmojisMap.put(0x2638, R.drawable.emoji_2638);
+        sEmojisMap.put(0x262f, R.drawable.emoji_262f);
+        sEmojisMap.put(0x271d, R.drawable.emoji_271d);
+        sEmojisMap.put(0x2626, R.drawable.emoji_2626);
+        sEmojisMap.put(0x26e9, R.drawable.emoji_26e9);
+        sEmojisMap.put(0x262a, R.drawable.emoji_262a);
+        sEmojisMap.put(0x262e, R.drawable.emoji_262e);
+        sEmojisMap.put(0x2622, R.drawable.emoji_2622);
+        sEmojisMap.put(0x2623, R.drawable.emoji_2623);
+        sEmojisMap.put(0x1f5e8, R.drawable.emoji_1f5e8);
     }
 
     private static boolean isSoftBankEmoji(char c) {
@@ -1458,85 +1645,63 @@ public final class EmojiconHandler {
                     icon = getEmojiResource(context, unicode);
                 }
 
-                if (icon == 0 && i + skip < textLengthToProcess) {
+                if (i + skip < textLengthToProcess) {
                     int followUnicode = Character.codePointAt(text, i + skip);
-                    if (followUnicode == 0x20e3) {
+                    //Non-spacing mark (Combining mark)
+                    if (followUnicode == 0xfe0f) {
                         int followSkip = Character.charCount(followUnicode);
-                        switch (unicode) {
-                            case 0x0031:
-                                icon = R.drawable.emoji_0031;
-                                break;
-                            case 0x0032:
-                                icon = R.drawable.emoji_0032;
-                                break;
-                            case 0x0033:
-                                icon = R.drawable.emoji_0033;
-                                break;
-                            case 0x0034:
-                                icon = R.drawable.emoji_0034;
-                                break;
-                            case 0x0035:
-                                icon = R.drawable.emoji_0035;
-                                break;
-                            case 0x0036:
-                                icon = R.drawable.emoji_0036;
-                                break;
-                            case 0x0037:
-                                icon = R.drawable.emoji_0037;
-                                break;
-                            case 0x0038:
-                                icon = R.drawable.emoji_0038;
-                                break;
-                            case 0x0039:
-                                icon = R.drawable.emoji_0039;
-                                break;
-                            case 0x0030:
-                                icon = R.drawable.emoji_0030;
-                                break;
-                            case 0x0023:
-                                icon = R.drawable.emoji_0023;
-                                break;
-                            default:
-                                followSkip = 0;
-                                break;
+                        if (i + skip + followSkip < textLengthToProcess) {
+                            
+                            int nextFollowUnicode = Character.codePointAt(text, i + skip + followSkip);
+                            if (nextFollowUnicode == 0x20e3) {
+                                int nextFollowSkip = Character.charCount(nextFollowUnicode);
+                                int tempIcon = getKeyCapEmoji(unicode);
+                                
+                                if(tempIcon == 0){
+                                    followSkip = 0;
+                                    nextFollowSkip = 0;
+                                }else{
+                                    icon = tempIcon;
+                                }
+                                skip += (followSkip + nextFollowSkip);
+                            }
+                        }
+                    }else if (followUnicode == 0x20e3) {
+                        //some older versions of iOS don't use a combining character, instead it just goes straight to the second part
+                        int followSkip = Character.charCount(followUnicode);
+                        
+                        int tempIcon = getKeyCapEmoji(unicode);
+                        if(tempIcon == 0){
+                            followSkip = 0;
+                        }else{
+                            icon = tempIcon;
                         }
                         skip += followSkip;
+                        
                     } else {
+                        //handle other emoji modifiers
                         int followSkip = Character.charCount(followUnicode);
-                        switch (unicode) {
-                            case 0x1f1ef:
-                                icon = (followUnicode == 0x1f1f5) ? R.drawable.emoji_1f1ef_1f1f5 : 0;
-                                break;
-                            case 0x1f1fa:
-                                icon = (followUnicode == 0x1f1f8) ? R.drawable.emoji_1f1fa_1f1f8 : 0;
-                                break;
-                            case 0x1f1eb:
-                                icon = (followUnicode == 0x1f1f7) ? R.drawable.emoji_1f1eb_1f1f7 : 0;
-                                break;
-                            case 0x1f1e9:
-                                icon = (followUnicode == 0x1f1ea) ? R.drawable.emoji_1f1e9_1f1ea : 0;
-                                break;
-                            case 0x1f1ee:
-                                icon = (followUnicode == 0x1f1f9) ? R.drawable.emoji_1f1ee_1f1f9 : 0;
-                                break;
-                            case 0x1f1ec:
-                                icon = (followUnicode == 0x1f1e7) ? R.drawable.emoji_1f1ec_1f1e7 : 0;
-                                break;
-                            case 0x1f1ea:
-                                icon = (followUnicode == 0x1f1f8) ? R.drawable.emoji_1f1ea_1f1f8 : 0;
-                                break;
-                            case 0x1f1f7:
-                                icon = (followUnicode == 0x1f1fa) ? R.drawable.emoji_1f1f7_1f1fa : 0;
-                                break;
-                            case 0x1f1e8:
-                                icon = (followUnicode == 0x1f1f3) ? R.drawable.emoji_1f1e8_1f1f3 : 0;
-                                break;
-                            case 0x1f1f0:
-                                icon = (followUnicode == 0x1f1f7) ? R.drawable.emoji_1f1f0_1f1f7 : 0;
-                                break;
-                            default:
-                                followSkip = 0;
-                                break;
+                        
+                        //TODO seems like we could do this for every emoji type rather than having that giant static map, maybe this is too slow?
+                        String hexUnicode = Integer.toHexString(unicode);
+                        String hexFollowUnicode = Integer.toHexString(followUnicode);
+                        
+                        String resourceName = "emoji_" + hexUnicode + "_" + hexFollowUnicode;
+
+                        int resourceId = 0;
+                        if(sEmojisModifiedMap.containsKey(resourceName)){
+                            resourceId = sEmojisModifiedMap.get(resourceName);
+                        }else{
+                            resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getApplicationContext().getPackageName());
+                            if(resourceId != 0){
+                                sEmojisModifiedMap.put(resourceName, resourceId);
+                            }
+                        }
+                        
+                        if(resourceId == 0){
+                            followSkip = 0;
+                        }else{
+                            icon = resourceId;
                         }
                         skip += followSkip;
                     }
@@ -1548,4 +1713,50 @@ public final class EmojiconHandler {
             }
         }
     }
+    
+    private static int getKeyCapEmoji(int unicode) {
+        int icon = 0;
+        switch (unicode) {
+            case 0x0023:
+                icon = R.drawable.emoji_0023;
+                break;
+            case 0x002a:
+                icon = R.drawable.emoji_002a_20e3;
+                break;
+            case 0x0030:
+                icon = R.drawable.emoji_0030;
+                break;
+            case 0x0031:
+                icon = R.drawable.emoji_0031;
+                break;
+            case 0x0032:
+                icon = R.drawable.emoji_0032;
+                break;
+            case 0x0033:
+                icon = R.drawable.emoji_0033;
+                break;
+            case 0x0034:
+                icon = R.drawable.emoji_0034;
+                break;
+            case 0x0035:
+                icon = R.drawable.emoji_0035;
+                break;
+            case 0x0036:
+                icon = R.drawable.emoji_0036;
+                break;
+            case 0x0037:
+                icon = R.drawable.emoji_0037;
+                break;
+            case 0x0038:
+                icon = R.drawable.emoji_0038;
+                break;
+            case 0x0039:
+                icon = R.drawable.emoji_0039;
+                break;
+            default:
+                break;
+        }
+        return icon;
+    }
+    
 }
