@@ -78,7 +78,7 @@ class EmojiconSpan extends DynamicDrawableSpan {
 
         int transY = bottom - b.getBounds().bottom;
         if (mVerticalAlignment == ALIGN_BASELINE) {
-          transY = top + ((bottom - top) / 2) - ((b.getBounds().bottom - b.getBounds().top) / 2) - mTop;
+            transY = top + ((bottom - top) / 2) - ((b.getBounds().bottom - b.getBounds().top) / 2) - mTop;
         }
 
         canvas.translate(x, transY);

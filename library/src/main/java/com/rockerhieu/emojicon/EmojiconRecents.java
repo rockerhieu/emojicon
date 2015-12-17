@@ -16,13 +16,13 @@
 
 package com.rockerhieu.emojicon;
 
-import com.rockerhieu.emojicon.emoji.Emojicon;
-
 import android.content.Context;
 
+import com.rockerhieu.emojicon.emoji.Emojicon;
+
 /**
-* @author Daniele Ricci
-*/
+ * @author Daniele Ricci
+ */
 public interface EmojiconRecents {
     public void addRecentEmoji(Context context, Emojicon emojicon);
 }

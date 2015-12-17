@@ -28,7 +28,13 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.*;
 import android.widget.EditText;
-import com.rockerhieu.emojicon.emoji.*;
+
+import com.rockerhieu.emojicon.emoji.Emojicon;
+import com.rockerhieu.emojicon.emoji.Nature;
+import com.rockerhieu.emojicon.emoji.Objects;
+import com.rockerhieu.emojicon.emoji.People;
+import com.rockerhieu.emojicon.emoji.Places;
+import com.rockerhieu.emojicon.emoji.Symbols;
 
 import java.util.Arrays;
 import java.util.List;
@@ -107,8 +113,7 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
 
         if (page == 0) {
             onPageSelected(page);
-        }
-        else {
+        } else {
             emojisPager.setCurrentItem(page, false);
         }
         return view;
@@ -119,7 +124,7 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
         super.onAttach(activity);
         if (getActivity() instanceof OnEmojiconBackspaceClickedListener) {
             mOnEmojiconBackspaceClickedListener = (OnEmojiconBackspaceClickedListener) getActivity();
-        } else if(getParentFragment() instanceof  OnEmojiconBackspaceClickedListener) {
+        } else if (getParentFragment() instanceof OnEmojiconBackspaceClickedListener) {
             mOnEmojiconBackspaceClickedListener = (OnEmojiconBackspaceClickedListener) getParentFragment();
         } else {
             throw new IllegalArgumentException(activity + " must implement interface " + OnEmojiconBackspaceClickedListener.class.getSimpleName());

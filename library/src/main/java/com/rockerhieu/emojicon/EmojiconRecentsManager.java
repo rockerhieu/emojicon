@@ -16,17 +16,17 @@
 
 package com.rockerhieu.emojicon;
 
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
-import com.rockerhieu.emojicon.emoji.Emojicon;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.rockerhieu.emojicon.emoji.Emojicon;
+
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
-* @author Daniele Ricci
-*/
+ * @author Daniele Ricci
+ */
 public class EmojiconRecentsManager extends ArrayList<Emojicon> {
     private static final String DELIMITER = ",";
     private static final String PREFERENCE_NAME = "emojicon";

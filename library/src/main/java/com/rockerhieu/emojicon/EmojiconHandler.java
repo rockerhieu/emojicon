@@ -1361,7 +1361,7 @@ public final class EmojiconHandler {
         sSoftbanksMap.put(0xe535, R.drawable.emoji_1f17e);
         sSoftbanksMap.put(0xe536, R.drawable.emoji_1f43e);
         sSoftbanksMap.put(0xe537, R.drawable.emoji_2122);
-        
+
         sEmojisMap.put(0x1f642, R.drawable.emoji_1f642);
         sEmojisMap.put(0x1f917, R.drawable.emoji_1f917);
         sEmojisMap.put(0x1f914, R.drawable.emoji_1f914);
@@ -1619,7 +1619,7 @@ public final class EmojiconHandler {
 
         int textLength = text.length();
         int textLengthToProcessMax = textLength - index;
-        int textLengthToProcess = length < 0 || length >= textLengthToProcessMax ? textLength : (length+index);
+        int textLengthToProcess = length < 0 || length >= textLengthToProcessMax ? textLength : (length + index);
 
         // remove spans throughout all text
         EmojiconSpan[] oldSpans = text.getSpans(0, textLength, EmojiconSpan.class);
@@ -1651,56 +1651,56 @@ public final class EmojiconHandler {
                     if (followUnicode == 0xfe0f) {
                         int followSkip = Character.charCount(followUnicode);
                         if (i + skip + followSkip < textLengthToProcess) {
-                            
+
                             int nextFollowUnicode = Character.codePointAt(text, i + skip + followSkip);
                             if (nextFollowUnicode == 0x20e3) {
                                 int nextFollowSkip = Character.charCount(nextFollowUnicode);
                                 int tempIcon = getKeyCapEmoji(unicode);
-                                
-                                if(tempIcon == 0){
+
+                                if (tempIcon == 0) {
                                     followSkip = 0;
                                     nextFollowSkip = 0;
-                                }else{
+                                } else {
                                     icon = tempIcon;
                                 }
                                 skip += (followSkip + nextFollowSkip);
                             }
                         }
-                    }else if (followUnicode == 0x20e3) {
+                    } else if (followUnicode == 0x20e3) {
                         //some older versions of iOS don't use a combining character, instead it just goes straight to the second part
                         int followSkip = Character.charCount(followUnicode);
-                        
+
                         int tempIcon = getKeyCapEmoji(unicode);
-                        if(tempIcon == 0){
+                        if (tempIcon == 0) {
                             followSkip = 0;
-                        }else{
+                        } else {
                             icon = tempIcon;
                         }
                         skip += followSkip;
-                        
+
                     } else {
                         //handle other emoji modifiers
                         int followSkip = Character.charCount(followUnicode);
-                        
+
                         //TODO seems like we could do this for every emoji type rather than having that giant static map, maybe this is too slow?
                         String hexUnicode = Integer.toHexString(unicode);
                         String hexFollowUnicode = Integer.toHexString(followUnicode);
-                        
+
                         String resourceName = "emoji_" + hexUnicode + "_" + hexFollowUnicode;
 
                         int resourceId = 0;
-                        if(sEmojisModifiedMap.containsKey(resourceName)){
+                        if (sEmojisModifiedMap.containsKey(resourceName)) {
                             resourceId = sEmojisModifiedMap.get(resourceName);
-                        }else{
+                        } else {
                             resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getApplicationContext().getPackageName());
-                            if(resourceId != 0){
+                            if (resourceId != 0) {
                                 sEmojisModifiedMap.put(resourceName, resourceId);
                             }
                         }
-                        
-                        if(resourceId == 0){
+
+                        if (resourceId == 0) {
                             followSkip = 0;
-                        }else{
+                        } else {
                             icon = resourceId;
                         }
                         skip += followSkip;
@@ -1713,7 +1713,7 @@ public final class EmojiconHandler {
             }
         }
     }
-    
+
     private static int getKeyCapEmoji(int unicode) {
         int icon = 0;
         switch (unicode) {
@@ -1758,5 +1758,5 @@ public final class EmojiconHandler {
         }
         return icon;
     }
-    
+
 }

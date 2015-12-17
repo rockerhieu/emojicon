@@ -16,9 +16,6 @@
 
 package com.rockerhieu.emojicon;
 
-import com.rockerhieu.emojicon.emoji.Emojicon;
-import com.rockerhieu.emojicon.emoji.People;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -28,6 +25,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+
+import com.rockerhieu.emojicon.emoji.Emojicon;
+import com.rockerhieu.emojicon.emoji.People;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
@@ -110,7 +110,7 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
         }
         if (mRecents != null) {
             mRecents.addRecentEmoji(view.getContext(), ((Emojicon) parent
-                .getItemAtPosition(position)));
+                    .getItemAtPosition(position)));
         }
     }
 

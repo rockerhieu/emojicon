@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2014 Hieu Rocker
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,16 +14,16 @@
   ~ limitations under the License.
   -->
 
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:emojicon="http://schemas.android.com/apk/res-auto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
     <com.rockerhieu.emojicon.EmojiconTextView
-            android:layout_gravity="center"
-            android:id="@+id/emojicon_icon"
-            android:layout_width="36dip"
-            android:layout_height="36dip"
-            emojicon:emojiconSize="30dip"
-            android:gravity="center"/>
+        android:layout_gravity="center"
+        android:id="@+id/emojicon_icon"
+        android:layout_width="36dip"
+        android:layout_height="36dip"
+        emojicon:emojiconSize="30dip"
+        android:gravity="center" />
 </FrameLayout>

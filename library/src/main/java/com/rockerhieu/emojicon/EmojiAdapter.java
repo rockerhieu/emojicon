@@ -16,13 +16,14 @@
 
 package com.rockerhieu.emojicon;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
 import com.rockerhieu.emojicon.emoji.Emojicon;
+
+import java.util.List;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)

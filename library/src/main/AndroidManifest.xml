@@ -1,4 +1,3 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.rockerhieu.emojicon">
+<manifest package="com.rockerhieu.emojicon">
 
 </manifest>

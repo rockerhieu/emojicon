@@ -16,12 +16,12 @@
 
 package com.rockerhieu.emojicon;
 
-import com.rockerhieu.emojicon.emoji.Emojicon;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
+
+import com.rockerhieu.emojicon.emoji.Emojicon;
 
 /**
  * @author Daniele Ricci
@@ -57,7 +57,7 @@ public class EmojiconRecentsGridFragment extends EmojiconGridFragment implements
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         EmojiconRecentsManager recents = EmojiconRecentsManager
-            .getInstance(view.getContext());
+                .getInstance(view.getContext());
 
         mAdapter = new EmojiAdapter(view.getContext(), recents, mUseSystemDefault);
         GridView gridView = (GridView) view.findViewById(R.id.Emoji_GridView);
@@ -74,7 +74,7 @@ public class EmojiconRecentsGridFragment extends EmojiconGridFragment implements
     @Override
     public void addRecentEmoji(Context context, Emojicon emojicon) {
         EmojiconRecentsManager recents = EmojiconRecentsManager
-            .getInstance(context);
+                .getInstance(context);
         recents.push(emojicon);
 
         // notify dataset changed

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 **
 ** Copyright 2013, The Android Open Source Project
@@ -19,14 +18,8 @@
 -->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:state_focused="true"
-        android:drawable="@drawable/ic_emoji_symbols_light_activated" />
-    <item
-        android:state_pressed="true"
-        android:drawable="@drawable/ic_emoji_symbols_light_activated" />
-    <item
-        android:state_selected="true"
-        android:drawable="@drawable/ic_emoji_symbols_light_activated" />
+    <item android:state_focused="true" android:drawable="@drawable/ic_emoji_symbols_light_activated" />
+    <item android:state_pressed="true" android:drawable="@drawable/ic_emoji_symbols_light_activated" />
+    <item android:state_selected="true" android:drawable="@drawable/ic_emoji_symbols_light_activated" />
     <item android:drawable="@drawable/ic_emoji_symbols_light_normal" />
 </selector>
