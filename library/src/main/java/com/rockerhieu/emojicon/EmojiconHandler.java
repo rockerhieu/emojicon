@@ -1714,10 +1714,8 @@ public final class EmojiconHandler {
                             icon = resourceId;
                         }
                         skip += followSkip;
-                    }else{
-                        int followSkip = Character.charCount(followUnicode);
-                        skip += followSkip;
-                    }                }
+                    }
+                }
             }
 
             if (icon > 0) {
