@@ -1,0 +1,79 @@
+ext {
+    bintray = [
+            bintrayRepo       : "maven",
+            bintrayName       : "emojicon",
+
+            publishedGroupId  : GROUP,
+            libraryName       : POM_NAME,
+            artifact          : POM_ARTIFACT_ID,
+
+            libraryDescription: POM_DESCRIPTION,
+
+            siteUrl           : POM_SCM_URL,
+            gitUrl            : POM_SCM_CONNECTION,
+
+            libraryVersion    : VERSION_NAME,
+
+            developerId       : POM_DEVELOPER_ID,
+            developerName     : POM_DEVELOPER_NAME,
+            developerEmail    : POM_DEVELOPER_EMAIL,
+
+            licenseName       : POM_LICENCE_NAME,
+            licenseUrl        : POM_LICENCE_URL,
+            allLicenses       : ["Apache-2.0"]
+    ]
+}
+
+version = project.ext.bintray.libraryVersion
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = "sources"
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = "javadoc"
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ["archives"]
+    pkg {
+        repo = project.ext.bintray.bintrayRepo
+        name = project.ext.bintray.bintrayName
+        desc = project.ext.bintray.libraryDescription
+        websiteUrl = project.ext.bintray.siteUrl
+        vcsUrl = project.ext.bintray.gitUrl
+        licenses = project.ext.bintray.allLicenses
+        publish = true
+        publicDownloadNumbers = true
+        userOrg = properties.getProperty("bintray.userOrg")
+        version {
+            desc = project.ext.bintray.libraryDescription
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password")
+                //Optional. The passphrase for GPG signing
+            }
+        }
+    }
+}

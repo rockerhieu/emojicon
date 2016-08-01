@@ -22,11 +22,11 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
-import com.rockerhieu.emojicon.EmojiconEditText;
-import com.rockerhieu.emojicon.EmojiconGridFragment;
-import com.rockerhieu.emojicon.EmojiconTextView;
-import com.rockerhieu.emojicon.EmojiconsFragment;
-import com.rockerhieu.emojicon.emoji.Emojicon;
+import io.github.rockerhieu.emojicon.EmojiconEditText;
+import io.github.rockerhieu.emojicon.EmojiconGridFragment;
+import io.github.rockerhieu.emojicon.EmojiconTextView;
+import io.github.rockerhieu.emojicon.EmojiconsFragment;
+import io.github.rockerhieu.emojicon.emoji.Emojicon;
 
 public class MainActivity extends FragmentActivity implements EmojiconGridFragment.OnEmojiconClickedListener, EmojiconsFragment.OnEmojiconBackspaceClickedListener {
     EmojiconEditText mEditEmojicon;

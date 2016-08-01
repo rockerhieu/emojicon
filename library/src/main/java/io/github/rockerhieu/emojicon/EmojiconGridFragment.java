@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rockerhieu.emojicon;
+package io.github.rockerhieu.emojicon;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -26,8 +26,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.rockerhieu.emojicon.emoji.Emojicon;
-import com.rockerhieu.emojicon.emoji.People;
+import com.rockerhieu.emojicon.R;
+
+import io.github.rockerhieu.emojicon.emoji.Emojicon;
+import io.github.rockerhieu.emojicon.emoji.People;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)

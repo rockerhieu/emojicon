@@ -1,13 +1,15 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7.1"
+}
 apply plugin: 'com.android.library'
-apply from: 'gradle-mvn-push.gradle'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "24.0.1"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 22
+        targetSdkVersion 23
     }
     lintOptions {
         abortOnError false
@@ -15,6 +17,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:22.2.1'
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:support-v4:24.1.1'
+    compile 'com.android.support:appcompat-v7:24.1.1'
 }
+
+apply from: 'gradle-mvn-push.gradle'
+apply from: 'bintray.gradle'

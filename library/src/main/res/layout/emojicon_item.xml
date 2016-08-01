@@ -19,7 +19,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.rockerhieu.emojicon.EmojiconTextView
+    <io.github.rockerhieu.emojicon.EmojiconTextView
         android:layout_gravity="center"
         android:id="@+id/emojicon_icon"
         android:layout_width="36dip"

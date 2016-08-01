@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rockerhieu.emojicon;
+package io.github.rockerhieu.emojicon;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,15 +26,21 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.*;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.rockerhieu.emojicon.emoji.Emojicon;
-import com.rockerhieu.emojicon.emoji.Nature;
-import com.rockerhieu.emojicon.emoji.Objects;
-import com.rockerhieu.emojicon.emoji.People;
-import com.rockerhieu.emojicon.emoji.Places;
-import com.rockerhieu.emojicon.emoji.Symbols;
+import com.rockerhieu.emojicon.R;
+
+import io.github.rockerhieu.emojicon.emoji.Emojicon;
+import io.github.rockerhieu.emojicon.emoji.Nature;
+import io.github.rockerhieu.emojicon.emoji.Objects;
+import io.github.rockerhieu.emojicon.emoji.People;
+import io.github.rockerhieu.emojicon.emoji.Places;
+import io.github.rockerhieu.emojicon.emoji.Symbols;
 
 import java.util.Arrays;
 import java.util.List;
@@ -213,13 +219,16 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
     }
 
     /**
+     * <p>
      * A class, that can be used as a TouchListener on any view (e.g. a Button).
      * It cyclically runs a clickListener, emulating keyboard-like behaviour. First
      * click is fired immediately, next before initialInterval, and subsequent before
      * normalInterval.
-     * <p/>
-     * <p>Interval is scheduled before the onClick completes, so it has to run fast.
+     * </p>
+     * <p>
+     * Interval is scheduled before the onClick completes, so it has to run fast.
      * If it runs slow, it does not generate skipped onClicks.
+     * </p>
      */
     public static class RepeatListener implements View.OnTouchListener {
 

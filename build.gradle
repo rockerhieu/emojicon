@@ -2,10 +2,11 @@
 
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.1'
+        classpath 'com.android.tools.build:gradle:2.2.0-alpha6'
     }
 }
 
@@ -15,3 +16,4 @@ allprojects {
         maven { url 'https://raw.github.com/rockerhieu/mvn-repo/master/' }
     }
 }
+

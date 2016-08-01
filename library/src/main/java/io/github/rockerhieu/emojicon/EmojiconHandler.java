@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.rockerhieu.emojicon;
+package io.github.rockerhieu.emojicon;
 
 import android.content.Context;
 import android.text.Spannable;
 import android.util.SparseIntArray;
+
+import com.rockerhieu.emojicon.R;
 
 import java.util.HashMap;
 import java.util.Map;

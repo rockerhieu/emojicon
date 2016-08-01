@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package com.rockerhieu.emojicon;
+package io.github.rockerhieu.emojicon;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.style.DynamicDrawableSpan;
 import android.util.AttributeSet;
 import android.widget.MultiAutoCompleteTextView;
+
+import com.rockerhieu.emojicon.R;
 
 public class EmojiconMultiAutoCompleteTextView extends MultiAutoCompleteTextView {
     private int mEmojiconSize;

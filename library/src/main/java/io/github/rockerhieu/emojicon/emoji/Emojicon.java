@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rockerhieu.emojicon.emoji;
+package io.github.rockerhieu.emojicon.emoji;
 
 import android.os.Parcel;
 import android.os.Parcelable;

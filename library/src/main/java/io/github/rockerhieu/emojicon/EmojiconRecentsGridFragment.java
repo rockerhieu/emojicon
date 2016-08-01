@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.rockerhieu.emojicon;
+package io.github.rockerhieu.emojicon;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 
-import com.rockerhieu.emojicon.emoji.Emojicon;
+import com.rockerhieu.emojicon.R;
+
+import io.github.rockerhieu.emojicon.emoji.Emojicon;
 
 /**
  * @author Daniele Ricci

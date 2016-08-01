@@ -1,6 +1,6 @@
 [![Android Gems](http://www.android-gems.com/badge/rockerhieu/emojicon.svg?branch=master)](http://www.android-gems.com/lib/rockerhieu/emojicon)
 
-![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master) ![emojicon on Maven Central](https://maven-badges.herokuapp.com/maven-central/com.rockerhieu.emojicon/library/badge.svg)
+![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master) ![emojicon on Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.rockerhieu/emojicon/badge.svg)
 
 ## Emojicon
 
@@ -17,14 +17,14 @@ Fore more information please see [the website](http://rockerhieu.github.io/emoji
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.rockerhieu.emojicon.EmojiconTextView
+    <io.github.rockerhieu.emojicon.EmojiconTextView
             android:id="@+id/txtEmojicon"
             android:text="I \ue32d emojicon"
             emojicon:emojiconAlignment="baseline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    <com.rockerhieu.emojicon.EmojiconEditText
+    <io.github.rockerhieu.emojicon.EmojiconEditText
             android:id="@+id/editEmojicon"
             android:text="I \ue32d emojicon"
             emojicon:emojiconSize="28sp"
@@ -34,7 +34,7 @@ Fore more information please see [the website](http://rockerhieu.github.io/emoji
             android:id="@+id/emojicons"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            class="com.rockerhieu.emojicon.EmojiconsFragment"/>
+            class="io.github.rockerhieu.emojicon.EmojiconsFragment"/>
 </LinearLayout>
 ```
 
@@ -55,7 +55,7 @@ _Note: You can change the size and alignment of emojis in XML layout through att
 Via Gradle:
 
 ```
-compile 'com.rockerhieu.emojicon:library:<latest-version>'
+compile 'io.github.rockerhieu:emojicon:<latest-version>'
 ```
 
 ## Building in Eclipse

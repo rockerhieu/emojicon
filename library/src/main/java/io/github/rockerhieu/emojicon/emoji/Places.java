@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rockerhieu.emojicon.emoji;
+package io.github.rockerhieu.emojicon.emoji;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)

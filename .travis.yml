@@ -15,8 +15,8 @@ android:
   - platform-tools
   - extra-android-support
   - extra-android-m2repository
-  - android-22
-  - build-tools-22.0.1
+  - android-23
+  - build-tools-24.0.1
 install:
   - ./gradlew dependencies
 

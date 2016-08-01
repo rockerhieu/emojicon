@@ -30,14 +30,14 @@
         android:id="@+id/use_system_default"
         android:checked="false" />
 
-    <com.rockerhieu.emojicon.EmojiconTextView
+    <io.github.rockerhieu.emojicon.EmojiconTextView
         android:id="@+id/txtEmojicon"
         android:text="@string/i_love_emojicon"
         emojicon:emojiconAlignment="baseline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.rockerhieu.emojicon.EmojiconEditText
+    <io.github.rockerhieu.emojicon.EmojiconEditText
         android:id="@+id/editEmojicon"
         android:hint="@string/hint"
         android:text="@string/i_love_emojicon"
