@@ -22,7 +22,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.style.DynamicDrawableSpan;
 import android.util.AttributeSet;
 
-import com.rockerhieu.emojicon.R;
+import io.github.rockerhieu.emojicon.R;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com).

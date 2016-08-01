@@ -22,7 +22,7 @@ import android.text.style.DynamicDrawableSpan;
 import android.util.AttributeSet;
 import android.widget.MultiAutoCompleteTextView;
 
-import com.rockerhieu.emojicon.R;
+import io.github.rockerhieu.emojicon.R;
 
 public class EmojiconMultiAutoCompleteTextView extends MultiAutoCompleteTextView {
     private int mEmojiconSize;

@@ -33,7 +33,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.rockerhieu.emojicon.R;
+import io.github.rockerhieu.emojicon.R;
 
 import io.github.rockerhieu.emojicon.emoji.Emojicon;
 import io.github.rockerhieu.emojicon.emoji.Nature;

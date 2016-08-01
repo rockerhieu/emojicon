@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.rockerhieu.emojicon.R;
+import io.github.rockerhieu.emojicon.R;
 
 import io.github.rockerhieu.emojicon.emoji.Emojicon;
 import io.github.rockerhieu.emojicon.emoji.People;

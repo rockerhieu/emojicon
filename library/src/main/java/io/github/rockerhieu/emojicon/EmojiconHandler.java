@@ -19,7 +19,7 @@ import android.content.Context;
 import android.text.Spannable;
 import android.util.SparseIntArray;
 
-import com.rockerhieu.emojicon.R;
+import io.github.rockerhieu.emojicon.R;
 
 import java.util.HashMap;
 import java.util.Map;
