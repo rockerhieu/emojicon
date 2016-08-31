@@ -18,11 +18,47 @@ package io.github.rockerhieu.emojicon.emoji;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.IntDef;
+import android.text.style.DynamicDrawableSpan;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
 public class Emojicon implements Parcelable {
+    @IntDef({DynamicDrawableSpan.ALIGN_BASELINE, DynamicDrawableSpan.ALIGN_BOTTOM})
+    public @interface Alignment {
+    }
+
+    @IntDef({TYPE_UNDEFINED, TYPE_PEOPLE, TYPE_NATURE, TYPE_OBJECTS, TYPE_PLACES, TYPE_SYMBOLS})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Type {
+    }
+
+    public static final int TYPE_UNDEFINED = 0;
+    public static final int TYPE_PEOPLE = 1;
+    public static final int TYPE_NATURE = 2;
+    public static final int TYPE_OBJECTS = 3;
+    public static final int TYPE_PLACES = 4;
+    public static final int TYPE_SYMBOLS = 5;
+
+    public static Emojicon[] getEmojicons(@Type int type) {
+        switch (type) {
+            case TYPE_PEOPLE:
+                return People.DATA;
+            case TYPE_NATURE:
+                return Nature.DATA;
+            case TYPE_OBJECTS:
+                return Objects.DATA;
+            case TYPE_PLACES:
+                return Places.DATA;
+            case TYPE_SYMBOLS:
+                return Symbols.DATA;
+        }
+        throw new IllegalArgumentException("Invalid emojicon type: " + type);
+    }
 
     public static final Creator<Emojicon> CREATOR = new Creator<Emojicon>() {
         @Override

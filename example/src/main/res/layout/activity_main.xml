@@ -15,35 +15,34 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.rockerhieu.emojicon.example.MainActivity$PlaceholderFragment">
-
+    tools:context="com.rockerhieu.emojicon.example.MainActivity">
 
     <CheckBox
+        android:id="@+id/use_system_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/use_system_default"
-        android:id="@+id/use_system_default"
-        android:checked="false" />
+        android:checked="false"
+        android:text="@string/use_system_default" />
 
     <io.github.rockerhieu.emojicon.EmojiconTextView
         android:id="@+id/txtEmojicon"
-        android:text="@string/i_love_emojicon"
-        emojicon:emojiconAlignment="baseline"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/i_love_emojicon"
+        emojicon:emojiconAlignment="baseline" />
 
     <io.github.rockerhieu.emojicon.EmojiconEditText
         android:id="@+id/editEmojicon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/hint"
         android:text="@string/i_love_emojicon"
-        emojicon:emojiconSize="28sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        emojicon:emojiconSize="28sp" />
 
     <FrameLayout
         android:id="@+id/emojicons"

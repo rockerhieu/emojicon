@@ -16,7 +16,7 @@
 
 package io.github.rockerhieu.emojicon;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -25,8 +25,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-
-import io.github.rockerhieu.emojicon.R;
 
 import io.github.rockerhieu.emojicon.emoji.Emojicon;
 import io.github.rockerhieu.emojicon.emoji.People;
@@ -37,21 +35,32 @@ import io.github.rockerhieu.emojicon.emoji.People;
 public class EmojiconGridFragment extends Fragment implements AdapterView.OnItemClickListener {
     private OnEmojiconClickedListener mOnEmojiconClickedListener;
     private EmojiconRecents mRecents;
-    private Emojicon[] mData;
+    private Emojicon[] mEmojicons;
+    private
+    @Emojicon.Type
+    int mEmojiconType;
     private boolean mUseSystemDefault = false;
 
-    private static final String USE_SYSTEM_DEFAULT_KEY = "useSystemDefaults";
-    private static final String EMOJICONS_KEY = "emojicons";
+    private static final String ARG_USE_SYSTEM_DEFAULTS = "useSystemDefaults";
+    private static final String ARG_EMOJICONS = "emojicons";
+    private static final String ARG_EMOJICON_TYPE = "emojiconType";
 
     protected static EmojiconGridFragment newInstance(Emojicon[] emojicons, EmojiconRecents recents) {
-        return newInstance(emojicons, recents, false);
+        return newInstance(Emojicon.TYPE_UNDEFINED, emojicons, recents, false);
     }
 
-    protected static EmojiconGridFragment newInstance(Emojicon[] emojicons, EmojiconRecents recents, boolean useSystemDefault) {
+    protected static EmojiconGridFragment newInstance(
+            @Emojicon.Type int type, EmojiconRecents recents, boolean useSystemDefault) {
+        return newInstance(type, null, recents, useSystemDefault);
+    }
+
+    protected static EmojiconGridFragment newInstance(
+            @Emojicon.Type int type, Emojicon[] emojicons, EmojiconRecents recents, boolean useSystemDefault) {
         EmojiconGridFragment emojiGridFragment = new EmojiconGridFragment();
         Bundle args = new Bundle();
-        args.putParcelableArray(EMOJICONS_KEY, emojicons);
-        args.putBoolean(USE_SYSTEM_DEFAULT_KEY, useSystemDefault);
+        args.putInt(ARG_EMOJICON_TYPE, type);
+        args.putParcelableArray(ARG_EMOJICONS, emojicons);
+        args.putBoolean(ARG_USE_SYSTEM_DEFAULTS, useSystemDefault);
         emojiGridFragment.setArguments(args);
         emojiGridFragment.setRecents(recents);
         return emojiGridFragment;
@@ -67,35 +76,42 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
         GridView gridView = (GridView) view.findViewById(R.id.Emoji_GridView);
         Bundle bundle = getArguments();
         if (bundle == null) {
-            mData = People.DATA;
+            mEmojiconType = Emojicon.TYPE_UNDEFINED;
+            mEmojicons = People.DATA;
             mUseSystemDefault = false;
         } else {
-            Parcelable[] parcels = bundle.getParcelableArray(EMOJICONS_KEY);
-            mData = new Emojicon[parcels.length];
-            for (int i = 0; i < parcels.length; i++) {
-                mData[i] = (Emojicon) parcels[i];
+            //noinspection WrongConstant
+            mEmojiconType = bundle.getInt(ARG_EMOJICON_TYPE);
+            if (mEmojiconType == Emojicon.TYPE_UNDEFINED) {
+                Parcelable[] parcels = bundle.getParcelableArray(ARG_EMOJICONS);
+                mEmojicons = new Emojicon[parcels.length];
+                for (int i = 0; i < parcels.length; i++) {
+                    mEmojicons[i] = (Emojicon) parcels[i];
+                }
+            } else {
+                mEmojicons = Emojicon.getEmojicons(mEmojiconType);
             }
-            mUseSystemDefault = bundle.getBoolean(USE_SYSTEM_DEFAULT_KEY);
+            mUseSystemDefault = bundle.getBoolean(ARG_USE_SYSTEM_DEFAULTS);
         }
-        gridView.setAdapter(new EmojiAdapter(view.getContext(), mData, mUseSystemDefault));
+        gridView.setAdapter(new EmojiAdapter(view.getContext(), mEmojicons, mUseSystemDefault));
         gridView.setOnItemClickListener(this);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelableArray(EMOJICONS_KEY, mData);
+        outState.putParcelableArray(ARG_EMOJICONS, mEmojicons);
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (activity instanceof OnEmojiconClickedListener) {
-            mOnEmojiconClickedListener = (OnEmojiconClickedListener) activity;
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnEmojiconClickedListener) {
+            mOnEmojiconClickedListener = (OnEmojiconClickedListener) context;
         } else if (getParentFragment() instanceof OnEmojiconClickedListener) {
             mOnEmojiconClickedListener = (OnEmojiconClickedListener) getParentFragment();
         } else {
-            throw new IllegalArgumentException(activity + " must implement interface " + OnEmojiconClickedListener.class.getSimpleName());
+            throw new IllegalArgumentException(context + " must implement interface " + OnEmojiconClickedListener.class.getSimpleName());
         }
     }
 
@@ -111,8 +127,7 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
             mOnEmojiconClickedListener.onEmojiconClicked((Emojicon) parent.getItemAtPosition(position));
         }
         if (mRecents != null) {
-            mRecents.addRecentEmoji(view.getContext(), ((Emojicon) parent
-                    .getItemAtPosition(position)));
+            mRecents.addRecentEmoji(view.getContext(), ((Emojicon) parent.getItemAtPosition(position)));
         }
     }
 

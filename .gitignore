@@ -1,12 +1,9 @@
+*.iml
 .gradle
 /local.properties
 /.idea/workspace.xml
+/.idea/libraries
 .DS_Store
-.idea
-atlassian-ide-plugin.xml
-example/src/main/bin
-example/src/main/gen
-library/src/main/bin
-library/src/main/gen
-rockerhieu.keystore
-build
+/build
+/captures
+.externalNativeBuild

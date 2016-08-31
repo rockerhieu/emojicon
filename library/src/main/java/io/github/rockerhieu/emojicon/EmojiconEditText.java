@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package io.github.rockerhieu.emojicon;
 
 import android.content.Context;
@@ -21,8 +20,6 @@ import android.content.res.TypedArray;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.style.DynamicDrawableSpan;
 import android.util.AttributeSet;
-
-import io.github.rockerhieu.emojicon.R;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com).

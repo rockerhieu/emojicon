@@ -16,7 +16,6 @@
 
 package io.github.rockerhieu.emojicon;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,17 +32,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import io.github.rockerhieu.emojicon.R;
-
-import io.github.rockerhieu.emojicon.emoji.Emojicon;
-import io.github.rockerhieu.emojicon.emoji.Nature;
-import io.github.rockerhieu.emojicon.emoji.Objects;
-import io.github.rockerhieu.emojicon.emoji.People;
-import io.github.rockerhieu.emojicon.emoji.Places;
-import io.github.rockerhieu.emojicon.emoji.Symbols;
-
 import java.util.Arrays;
 import java.util.List;
+
+import io.github.rockerhieu.emojicon.emoji.Emojicon;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com).
@@ -52,6 +44,7 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
     private OnEmojiconBackspaceClickedListener mOnEmojiconBackspaceClickedListener;
     private int mEmojiTabLastSelectedIndex = -1;
     private View[] mEmojiTabs;
+    private ViewPager mViewPager;
     private PagerAdapter mEmojisAdapter;
     private EmojiconRecentsManager mRecentsManager;
     private boolean mUseSystemDefault = false;
@@ -69,19 +62,19 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.emojicons, container, false);
-        final ViewPager emojisPager = (ViewPager) view.findViewById(R.id.emojis_pager);
-        emojisPager.setOnPageChangeListener(this);
-        // we handle recents
+        mViewPager = (ViewPager) view.findViewById(R.id.emojis_pager);
+        mViewPager.setOnPageChangeListener(this);
+
         EmojiconRecents recents = this;
-        mEmojisAdapter = new EmojisPagerAdapter(getFragmentManager(), Arrays.asList(
+        mEmojisAdapter = new EmojiconGridFragmentPagerAdapter(getFragmentManager(), Arrays.asList(
                 EmojiconRecentsGridFragment.newInstance(mUseSystemDefault),
-                EmojiconGridFragment.newInstance(People.DATA, recents, mUseSystemDefault),
-                EmojiconGridFragment.newInstance(Nature.DATA, recents, mUseSystemDefault),
-                EmojiconGridFragment.newInstance(Objects.DATA, recents, mUseSystemDefault),
-                EmojiconGridFragment.newInstance(Places.DATA, recents, mUseSystemDefault),
-                EmojiconGridFragment.newInstance(Symbols.DATA, recents, mUseSystemDefault)
+                EmojiconGridFragment.newInstance(Emojicon.TYPE_PEOPLE, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Emojicon.TYPE_NATURE, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Emojicon.TYPE_OBJECTS, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Emojicon.TYPE_PLACES, recents, mUseSystemDefault),
+                EmojiconGridFragment.newInstance(Emojicon.TYPE_SYMBOLS, recents, mUseSystemDefault)
         ));
-        emojisPager.setAdapter(mEmojisAdapter);
+        mViewPager.setAdapter(mEmojisAdapter);
 
         mEmojiTabs = new View[6];
         mEmojiTabs[0] = view.findViewById(R.id.emojis_tab_0_recents);
@@ -95,7 +88,7 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
             mEmojiTabs[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    emojisPager.setCurrentItem(position);
+                    mViewPager.setCurrentItem(position);
                 }
             });
         }
@@ -120,20 +113,20 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
         if (page == 0) {
             onPageSelected(page);
         } else {
-            emojisPager.setCurrentItem(page, false);
+            mViewPager.setCurrentItem(page, false);
         }
         return view;
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         if (getActivity() instanceof OnEmojiconBackspaceClickedListener) {
             mOnEmojiconBackspaceClickedListener = (OnEmojiconBackspaceClickedListener) getActivity();
         } else if (getParentFragment() instanceof OnEmojiconBackspaceClickedListener) {
             mOnEmojiconBackspaceClickedListener = (OnEmojiconBackspaceClickedListener) getParentFragment();
         } else {
-            throw new IllegalArgumentException(activity + " must implement interface " + OnEmojiconBackspaceClickedListener.class.getSimpleName());
+            throw new IllegalArgumentException(context + " must implement interface " + OnEmojiconBackspaceClickedListener.class.getSimpleName());
         }
     }
 
@@ -159,8 +152,7 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
 
     @Override
     public void addRecentEmoji(Context context, Emojicon emojicon) {
-        final ViewPager emojisPager = (ViewPager) getView().findViewById(R.id.emojis_pager);
-        EmojiconRecentsGridFragment fragment = (EmojiconRecentsGridFragment) mEmojisAdapter.instantiateItem(emojisPager, 0);
+        EmojiconRecentsGridFragment fragment = (EmojiconRecentsGridFragment) mEmojisAdapter.instantiateItem(mViewPager, 0);
         fragment.addRecentEmoji(context, emojicon);
     }
 
@@ -199,10 +191,10 @@ public class EmojiconsFragment extends Fragment implements ViewPager.OnPageChang
     public void onPageScrollStateChanged(int i) {
     }
 
-    private static class EmojisPagerAdapter extends FragmentStatePagerAdapter {
+    private static class EmojiconGridFragmentPagerAdapter extends FragmentStatePagerAdapter {
         private List<EmojiconGridFragment> fragments;
 
-        public EmojisPagerAdapter(FragmentManager fm, List<EmojiconGridFragment> fragments) {
+        public EmojiconGridFragmentPagerAdapter(FragmentManager fm, List<EmojiconGridFragment> fragments) {
             super(fm);
             this.fragments = fragments;
         }

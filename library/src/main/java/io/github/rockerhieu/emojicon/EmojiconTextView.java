@@ -18,17 +18,16 @@ package io.github.rockerhieu.emojicon;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.DynamicDrawableSpan;
 import android.util.AttributeSet;
-import android.widget.TextView;
-import io.github.rockerhieu.emojicon.R;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com).
  */
-public class EmojiconTextView extends TextView {
+public class EmojiconTextView extends AppCompatTextView {
     private int mEmojiconSize;
     private int mEmojiconAlignment;
     private int mEmojiconTextSize;

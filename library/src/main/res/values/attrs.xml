@@ -15,6 +15,9 @@
   -->
 
 <resources>
+    <declare-styleable name="EmojiconStyle">
+        <attr name="emojiconGridViewStyle" format="reference"/>
+    </declare-styleable>
     <declare-styleable name="Emojicon">
         <attr name="emojiconSize" format="dimension" />
         <attr name="emojiconAlignment" format="enum">

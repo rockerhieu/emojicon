@@ -18,13 +18,11 @@ package io.github.rockerhieu.emojicon;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.AppCompatMultiAutoCompleteTextView;
 import android.text.style.DynamicDrawableSpan;
 import android.util.AttributeSet;
-import android.widget.MultiAutoCompleteTextView;
 
-import io.github.rockerhieu.emojicon.R;
-
-public class EmojiconMultiAutoCompleteTextView extends MultiAutoCompleteTextView {
+public class EmojiconMultiAutoCompleteTextView extends AppCompatMultiAutoCompleteTextView {
     private int mEmojiconSize;
     private int mEmojiconAlignment;
     private int mEmojiconTextSize;
