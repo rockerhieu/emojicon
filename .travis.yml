@@ -3,7 +3,7 @@ branches:
     - master
 
 language: android
-jdk: oraclejdk7
+jdk: oraclejdk8
 env:
   global:
   - secure: HFrTJGqM13CLydBxYKVDVzxyxML8ivAdb0Q7WZsqF0Ou+mrin9+uj4tIc6fGo5SJaXRV5pLEXE5aXfzMqhdv80WBafe0n7aQLizlOJG2Z6PhYu8ojY7hjtVnYUtYj62uoP+Vh/YgWiAjPGZ3No3NSNmJ0noJkaFkDP0xyUAs6TE=
@@ -16,7 +16,7 @@ android:
   - extra-android-support
   - extra-android-m2repository
   - android-23
-  - build-tools-24.0.1
+  - build-tools-24.0.2
 install:
   - ./gradlew dependencies
 
