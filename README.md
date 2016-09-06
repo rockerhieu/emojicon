@@ -7,7 +7,7 @@
 
 Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io/emojicon/) is a library to implement such a thing for Android.
 
-Fore more information please see [the website](http://rockerhieu.github.io/emojicon/)
+You can also use [Emojiconize](https://github.com/rockerhieu/emojiconize) to support emoji rendering in your existing application very quickly.
 
 ## Example
 
