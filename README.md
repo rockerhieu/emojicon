@@ -1,6 +1,6 @@
 [![Android Gems](http://www.android-gems.com/badge/rockerhieu/emojicon.svg?branch=master)](http://www.android-gems.com/lib/rockerhieu/emojicon)
 
-[![master on Travis CI](https://travis-ci.org/rockerhieu/emojicon.png?branch=master)](https://travis-ci.org/rockerhieu/emojicon)
+[![CircleCI](https://circleci.com/gh/rockerhieu/emojicon.svg?style=svg&circle-token=3360549339f6271f6db44c24e23339ba75c054f4)](https://circleci.com/gh/rockerhieu/emojicon)
 ![emojicon on Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.rockerhieu/emojicon/badge.svg)
 
 ## Emojicon
