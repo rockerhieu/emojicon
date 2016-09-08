@@ -1,6 +1,6 @@
-plugins {
-    id "com.jfrog.bintray" version "1.7.1"
-}
+//plugins {
+//    id "com.jfrog.bintray" version "1.7.1"
+//}
 apply plugin: 'com.android.library'
 
 android {
@@ -23,4 +23,4 @@ dependencies {
 }
 
 apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
-apply from: 'bintray.gradle'
+// apply from: 'bintray.gradle'
