@@ -7,9 +7,28 @@
 
 Do you like emojis in Whatsapp, iMessage? [Emojicon](http://rockerhieu.github.io/emojicon/) is a library to implement such a thing for Android.
 
-You can also use [Emojiconize](https://github.com/rockerhieu/emojiconize) to support emoji rendering in your existing application very quickly.
-
 ## Example
+
+### emojiconize
+
+```java
+import io.github.rockerhieu.emojiconize.Emojiconize;
+
+// Your activity must be a subclass of AppCompatActivity
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // Emojiconize the whole activity, must call before `super.onCreate()`
+        Emojiconize.activity(this).go();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+```
+More information: [rockerhieu/emojiconize](https://github.com/rockerhieu/emojiconize)
+
+### emojicon
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
