@@ -8,7 +8,7 @@ android {
     buildToolsVersion "24.0.2"
 
     defaultConfig {
-        minSdkVersion 11
+        minSdkVersion 16
         targetSdkVersion 24
     }
     lintOptions {
@@ -20,6 +20,7 @@ dependencies {
     compile 'com.android.support:support-v4:24.1.1'
     compile 'com.android.support:support-annotations:24.1.1'
     compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
 }
 
 apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
