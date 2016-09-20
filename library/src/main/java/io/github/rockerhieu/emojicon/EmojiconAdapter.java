@@ -28,25 +28,25 @@ import java.util.List;
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
-class EmojiAdapter extends ArrayAdapter<Emojicon> {
+class EmojiconAdapter extends ArrayAdapter<Emojicon> {
     private boolean mUseSystemDefault = false;
 
-    public EmojiAdapter(Context context, List<Emojicon> data) {
+    public EmojiconAdapter(Context context, List<Emojicon> data) {
         super(context, R.layout.emojicon_item, data);
         mUseSystemDefault = false;
     }
 
-    public EmojiAdapter(Context context, List<Emojicon> data, boolean useSystemDefault) {
+    public EmojiconAdapter(Context context, List<Emojicon> data, boolean useSystemDefault) {
         super(context, R.layout.emojicon_item, data);
         mUseSystemDefault = useSystemDefault;
     }
 
-    public EmojiAdapter(Context context, Emojicon[] data) {
+    public EmojiconAdapter(Context context, Emojicon[] data) {
         super(context, R.layout.emojicon_item, data);
         mUseSystemDefault = false;
     }
 
-    public EmojiAdapter(Context context, Emojicon[] data, boolean useSystemDefault) {
+    public EmojiconAdapter(Context context, Emojicon[] data, boolean useSystemDefault) {
         super(context, R.layout.emojicon_item, data);
         mUseSystemDefault = useSystemDefault;
     }

@@ -21,15 +21,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 
-import io.github.rockerhieu.emojicon.R;
-
 import io.github.rockerhieu.emojicon.emoji.Emojicon;
 
 /**
  * @author Daniele Ricci
  */
 public class EmojiconRecentsGridFragment extends EmojiconGridFragment implements EmojiconRecents {
-    private EmojiAdapter mAdapter;
+    private EmojiconAdapter mAdapter;
     private boolean mUseSystemDefault = false;
 
     private static final String USE_SYSTEM_DEFAULT_KEY = "useSystemDefaults";
@@ -61,7 +59,7 @@ public class EmojiconRecentsGridFragment extends EmojiconGridFragment implements
         EmojiconRecentsManager recents = EmojiconRecentsManager
                 .getInstance(view.getContext());
 
-        mAdapter = new EmojiAdapter(view.getContext(), recents, mUseSystemDefault);
+        mAdapter = new EmojiconAdapter(view.getContext(), recents, mUseSystemDefault);
         GridView gridView = (GridView) view.findViewById(R.id.Emoji_GridView);
         gridView.setAdapter(mAdapter);
         gridView.setOnItemClickListener(this);

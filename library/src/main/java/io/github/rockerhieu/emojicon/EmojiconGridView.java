@@ -35,20 +35,20 @@ import io.github.rockerhieu.emojicon.emoji.Emojicon;
  */
 public class EmojiconGridView extends GridView implements AdapterView.OnItemClickListener {
     @Emojicon.Type
-    private int type;
-    private Emojicon[] data;
-    private boolean useSystemDefaults;
+    private int mType;
+    private Emojicon[] mData;
+    private boolean mUseSystemDefaults;
     private EmojiconGridFragment.OnEmojiconClickedListener onEmojiconClickedListener;
-    private EmojiAdapter emojiAdapter;
-    private List<Emojicon> emojiList;
+    private EmojiconAdapter mEmojiAdapter;
+    private List<Emojicon> mEmojiList;
 
     public EmojiconGridView(Context context, AttributeSet attrs) {
         super(context, attrs, R.attr.emojiconGridViewStyle);
         setOnItemClickListener(this);
         setSaveEnabled(true);
-        emojiList = new ArrayList<>();
-        emojiAdapter = new EmojiAdapter(context, emojiList);
-        setAdapter(emojiAdapter);
+        mEmojiList = new ArrayList<>();
+        mEmojiAdapter = new EmojiconAdapter(context, mEmojiList);
+        setAdapter(mEmojiAdapter);
     }
 
     public EmojiconGridView(Context context) {
@@ -59,9 +59,9 @@ public class EmojiconGridView extends GridView implements AdapterView.OnItemClic
     public Parcelable onSaveInstanceState() {
         Parcelable superState = super.onSaveInstanceState();
         SavedState ss = new SavedState(superState);
-        ss.data = data;
-        ss.type = type;
-        ss.useSystemDefaults = useSystemDefaults;
+        ss.data = mData;
+        ss.type = mType;
+        ss.useSystemDefaults = mUseSystemDefaults;
         ss.scrollX = getScrollX();
         ss.scrollY = getScrollY();
         return ss;
@@ -76,29 +76,29 @@ public class EmojiconGridView extends GridView implements AdapterView.OnItemClic
 
         SavedState ss = (SavedState) state;
         super.onRestoreInstanceState(ss.getSuperState());
-        type = ss.type;
-        data = ss.data;
-        useSystemDefaults = ss.useSystemDefaults;
+        mType = ss.type;
+        mData = ss.data;
+        mUseSystemDefaults = ss.useSystemDefaults;
         setScrollX(ss.scrollX);
         setScrollY(ss.scrollY);
-        setEmojiData(type, data, useSystemDefaults);
+        setEmojiData(mType, mData, mUseSystemDefaults);
     }
 
     public void setEmojiData(@Emojicon.Type int type, Emojicon[] data, boolean useSystemDefaults) {
-        this.type = type;
-        if (this.type != Emojicon.TYPE_UNDEFINED) {
-            this.data = Emojicon.getEmojicons(type);
+        this.mType = type;
+        if (this.mType != Emojicon.TYPE_UNDEFINED) {
+            this.mData = Emojicon.getEmojicons(type);
         } else {
-            this.data = data;
+            this.mData = data;
         }
-        this.useSystemDefaults = useSystemDefaults;
-        if (this.data == null) {
-            emojiList.clear();
+        this.mUseSystemDefaults = useSystemDefaults;
+        if (this.mData == null) {
+            mEmojiList.clear();
         } else {
-            emojiList.clear();
-            Collections.addAll(emojiList, this.data);
+            mEmojiList.clear();
+            Collections.addAll(mEmojiList, this.mData);
         }
-        emojiAdapter.notifyDataSetChanged();
+        mEmojiAdapter.notifyDataSetChanged();
     }
 
     public void setOnEmojiconClickedListener(EmojiconGridFragment.OnEmojiconClickedListener onEmojiconClickedListener) {

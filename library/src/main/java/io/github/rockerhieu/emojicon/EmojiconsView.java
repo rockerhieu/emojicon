@@ -36,15 +36,17 @@ import android.widget.LinearLayout;
 import java.util.Arrays;
 import java.util.List;
 
+import io.github.rockerhieu.emojicon.util.Utils;
+
 /**
  * Created by rockerhieu on 8/31/16.
  */
 public class EmojiconsView extends FrameLayout implements ViewPager.OnPageChangeListener {
-    ViewPager viewPager;
-    private List<EmojiconPage> pages;
-    private ViewGroup tabsContainer;
-    private View[] tabs;
-    private View lastTab;
+    ViewPager mViewPager;
+    private List<EmojiconPage> mPages;
+    private ViewGroup mTabsContainer;
+    private View[] mTabs;
+    private View mLastTab;
 
     public EmojiconsView(Context context) {
         this(context, null);
@@ -53,32 +55,32 @@ public class EmojiconsView extends FrameLayout implements ViewPager.OnPageChange
     public EmojiconsView(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.emojicons_view, this);
-        viewPager = (ViewPager) findViewById(R.id.emojis_pager);
-        tabsContainer = (ViewGroup) findViewById(R.id.emojis_tab);
+        mViewPager = (ViewPager) findViewById(R.id.emojis_pager);
+        mTabsContainer = (ViewGroup) findViewById(R.id.emojis_tab);
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        viewPager.addOnPageChangeListener(this);
+        mViewPager.addOnPageChangeListener(this);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        viewPager.removeOnPageChangeListener(this);
+        mViewPager.removeOnPageChangeListener(this);
     }
 
     public void setPages(@NonNull List<EmojiconPage> pages) {
-        this.pages = pages;
-        if (tabs == null || tabs.length != pages.size()) {
-            tabs = new View[pages.size()];
+        this.mPages = pages;
+        if (mTabs == null || mTabs.length != pages.size()) {
+            mTabs = new View[pages.size()];
         } else {
-            Arrays.fill(tabs, null);
+            Arrays.fill(mTabs, null);
         }
 
-        for (int i = 0; i < tabsContainer.getChildCount() - 2; i++) {
-            tabsContainer.removeViewAt(0);
+        for (int i = 0; i < mTabsContainer.getChildCount() - 2; i++) {
+            mTabsContainer.removeViewAt(0);
         }
 
         int index = 0;
@@ -87,18 +89,18 @@ public class EmojiconsView extends FrameLayout implements ViewPager.OnPageChange
             addTabDivider();
         }
         onPageSelected(0);
-        viewPager.setAdapter(new EmojiconGridViewPagerAdapter(getContext(), pages));
+        mViewPager.setAdapter(new EmojiconGridViewPagerAdapter(getContext(), pages));
     }
 
     private void addTabDivider() {
         View divider = new View(getContext());
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            viewPager.setBackgroundColor(getContext().getResources().getColor(R.color.horizontal_vertical));
+            mViewPager.setBackgroundColor(getContext().getResources().getColor(R.color.horizontal_vertical));
         } else {
-            viewPager.setBackgroundColor(getContext().getColor(R.color.horizontal_vertical));
+            mViewPager.setBackgroundColor(getContext().getColor(R.color.horizontal_vertical));
         }
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(1, LinearLayout.LayoutParams.MATCH_PARENT);
-        tabsContainer.addView(divider, tabsContainer.getChildCount() - 2, params);
+        mTabsContainer.addView(divider, mTabsContainer.getChildCount() - 2, params);
     }
 
     private void addTabIcon(EmojiconPage page, int index) {
@@ -112,13 +114,13 @@ public class EmojiconsView extends FrameLayout implements ViewPager.OnPageChange
         } else {
             icon.setImageDrawable(getContext().getDrawable(page.getIcon()));
         }
-        tabsContainer.addView(icon, tabsContainer.getChildCount() - 2, params);
-        tabs[index] = icon;
+        mTabsContainer.addView(icon, mTabsContainer.getChildCount() - 2, params);
+        mTabs[index] = icon;
         final int indexToMove = index;
         icon.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(indexToMove, true);
+                mViewPager.setCurrentItem(indexToMove, true);
             }
         });
     }
@@ -129,21 +131,21 @@ public class EmojiconsView extends FrameLayout implements ViewPager.OnPageChange
 
     @Override
     public void onPageSelected(int position) {
-        if (tabs == null || position >= tabs.length) {
+        if (mTabs == null || position >= mTabs.length) {
             return;
         }
-        if (lastTab != null) {
-            lastTab.setSelected(false);
+        if (mLastTab != null) {
+            mLastTab.setSelected(false);
         }
-        lastTab = tabs[position];
-        lastTab.setSelected(true);
+        mLastTab = mTabs[position];
+        mLastTab.setSelected(true);
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
     }
 
-    private static class EmojiconGridViewPagerAdapter extends PagerAdapter {
+    static class EmojiconGridViewPagerAdapter extends PagerAdapter {
         private Context context;
         private final List<EmojiconPage> pages;
         private EmojiconGridView.SavedState[] savedStates;

@@ -93,7 +93,7 @@ public class EmojiconGridFragment extends Fragment implements AdapterView.OnItem
             }
             mUseSystemDefault = bundle.getBoolean(ARG_USE_SYSTEM_DEFAULTS);
         }
-        gridView.setAdapter(new EmojiAdapter(view.getContext(), mEmojicons, mUseSystemDefault));
+        gridView.setAdapter(new EmojiconAdapter(view.getContext(), mEmojicons, mUseSystemDefault));
         gridView.setOnItemClickListener(this);
     }
 

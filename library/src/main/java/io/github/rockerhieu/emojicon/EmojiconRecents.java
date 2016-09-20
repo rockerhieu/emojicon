@@ -24,5 +24,5 @@ import io.github.rockerhieu.emojicon.emoji.Emojicon;
  * @author Daniele Ricci
  */
 public interface EmojiconRecents {
-    public void addRecentEmoji(Context context, Emojicon emojicon);
+    void addRecentEmoji(Context context, Emojicon emojicon);
 }
