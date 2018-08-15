@@ -1,3 +1,8 @@
+# Discontinued
+This projected is discontinued. Please consider using other alternative, i.e EmojiCompat.
+
+Contact me if you want to continue working on another forked repository so I can promote it here. Cheers!
+
 [![Android Gems](http://www.android-gems.com/badge/rockerhieu/emojicon.svg?branch=master)](http://www.android-gems.com/lib/rockerhieu/emojicon)
 
 [![CircleCI](https://circleci.com/gh/rockerhieu/emojicon.svg?style=svg&circle-token=3360549339f6271f6db44c24e23339ba75c054f4)](https://circleci.com/gh/rockerhieu/emojicon)
